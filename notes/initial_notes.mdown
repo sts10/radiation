@@ -1,0 +1,23 @@
+# Initial Notes on What Radiation Might Be
+
+### Assumptions About These "Tilde Clubs" and Their Offshoots
+
+Paul Ford's Tilde Clublooks to be a collection of directories on a simple, remote Unix server. Each member has their own directory, with the nostaligc naming convention of ~username. Within each of those directories, presumably, is an `index.html` file that represents the user's homepage. 
+
+Many users seem to be using the space as a blog, but absent a CMS of any kind, they simple add handwriteen HTML to `index.html`, adding a new div with a handwritten timestamp above their last entry to make a new post. About half of these "blogs" don't have permalinks for each post-- it's just a long list of posts. Oh, and they edit `index.html` with a terminal application: nano, emacs, or vi/vim. 
+
+So. Let's think about how we could make a simple CMS for this system. A simple way to do it would be to have a `rake`-like command called `publish` that would dynamically create a HTML file (in this case, `index.html`) by grabbing posts and printing a string of HTML to the HTML file. 
+
+It could be: partial HTML files that live on the user's harddrive > `publish` command to create the HTML file. Or we could use JSON somewhere in there. 
+
+Interesting issues:
+- How to handle timestamps
+- What language do I want this to be written and executed in? 
+- How similar is this to the CMS I made for the Shareablee Insights blog? 
+
+Answers:
+- Find time that file was created
+- Probably can write it in Ruby. All that the Ruby script does is take a directory of HTML files (partials) and their timestamps, and re-writes an index.html file. 
+- Use Ruby's gets.chomp for users to name the file. Then they can just use an `<h1>` for the displayed title of the post. 
+- Can we use ERB templating here? Without Rails or Sinatra? Should keep in mind what normal users have installed with Mac OS X out of the box...  
+- Probably going to have a `make_page!` method. 
