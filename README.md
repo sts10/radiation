@@ -40,5 +40,11 @@ function radiation {
 
 Then you should be able to enter simply the word `radiation` from any directory and Radiation will run. When you quit Radiation you'll be returned to the directory you launched Radiation from.
 
+### Hopefully Coming Soon
 
+- Permalinks for each post.
+- Pagination
+- Easier way to edit existing posts
+- Export to JSON
+- A way to save and store drafts
 
