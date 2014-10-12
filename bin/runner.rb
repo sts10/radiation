@@ -13,8 +13,8 @@ else
   while choice != 'q'
     puts ""
     puts "                       "
-    puts "   ☢☢               ☢☢☢  "
-    puts "  ☢☢☢☢             ☢☢☢☢☢  "
+    puts "  ☢☢☢               ☢☢☢  "
+    puts " ☢☢☢☢☢             ☢☢☢☢☢  "
     puts "☢☢☢☢☢☢☢ RADIATION ☢☢☢☢☢☢☢"
     puts "           ☢☢☢           "
     puts "          ☢☢☢☢☢          "
