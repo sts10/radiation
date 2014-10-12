@@ -11,7 +11,7 @@ Radiation is a simple blog CMS for totallynuclear.club pages.
 
 At this point your going to need to `cd` to the `radiation` directory to issue commands to Radiation. 
 
-Once you're in the `radiation`  directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. 
+Once you're in the `radiation`  directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly created posts in Vim. 
 
 ### Editing the Blog Template 
 
@@ -42,8 +42,10 @@ Then you should be able to enter simply the word `radiation` from any directory 
 
 ### Hopefully Coming Soon
 
+- Prettier Display of timestamp on posts
 - Permalinks for each post.
 - Pagination
+- Support for multiple text editors
 - Easier way to edit existing posts
 - Export to JSON
 - A way to save and store drafts
