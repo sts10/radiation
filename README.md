@@ -13,6 +13,10 @@ At this point your going to need to `cd` to the `radiation` directory to issue c
 
 Once you're in the `radiation`  directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. 
 
+### Editing the Blog Template 
+
+Radiation sues ERB for templating. 
+
 ### Changing Defaults 
 
 If you don't want the Radiation-compiled blog to be located at `public_html/blog.html`, just change it in the Radiation file: `radiation/lib/site_generator.rb` in the following line: 

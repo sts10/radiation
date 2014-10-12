@@ -6,7 +6,7 @@ class SiteGenerator
   end
   def make_page!
     puts "we called make page!"
-    template_doc= File.open("lib/templates/example.html.erb", "r")
+    template_doc= File.open("lib/templates/blog.html.erb", "r")
 
     template = ERB.new(template_doc.read)
     
