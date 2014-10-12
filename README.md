@@ -15,7 +15,7 @@ Once you're in the `radiation`  directory, simple run `ruby bin/runner.rb` to ru
 
 ### Editing the Blog Template 
 
-Radiation sues ERB for templating. 
+Radiation sues ERB for templating. If you don't know ERB, you can probably figure it out. Head on over to `radiation/lib/templates/blog.html.erb` and take a look. 
 
 ### Changing Defaults 
 
