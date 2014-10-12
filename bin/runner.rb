@@ -11,6 +11,17 @@ else
 
   choice = ''
   while choice != 'q'
+    puts ""
+    puts "                       "
+    puts "   ☢☢               ☢☢☢  "
+    puts "  ☢☢☢☢             ☢☢☢☢☢  "
+    puts "☢☢☢☢☢☢☢ RADIATION ☢☢☢☢☢☢☢"
+    puts "           ☢☢☢           "
+    puts "          ☢☢☢☢☢          "
+    puts "         ☢☢☢☢☢☢☢         "
+    puts "        ☢☢☢☢☢☢☢☢☢        "
+
+    puts ""
     puts "What do you want to do?"
     puts "p - publish your blog"
     puts "n - create new blog post"

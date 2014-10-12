@@ -5,7 +5,7 @@ class SiteGenerator
     @posts_array = posts_array
   end
   def make_page!
-    puts "we called make page!"
+    puts "Creating new blog.html..."
     template_doc= File.open("lib/templates/blog.html.erb", "r")
 
     template = ERB.new(template_doc.read)
@@ -16,6 +16,8 @@ class SiteGenerator
         )
       f.close
     end
+
+    puts "☢☢☢ Publishing was (probably) successful! ☢☢☢"
 
     # `open _site/ruby_file.rb` 
   end

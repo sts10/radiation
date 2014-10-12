@@ -10,10 +10,8 @@ class PostCompiler
   end
 
   def compile
-    puts "runnign compile method"
-    puts "directory location is #{@directory_location}"
+  
     html_files = @directory_location + '*.html'
-    puts "html_files is #{html_files}"
 
     # sort html files in reverse chron order by creation time
     html_files_sorted = Dir[html_files].sort_by{ |f| File.mtime(f) }.reverse
@@ -26,10 +24,9 @@ class PostCompiler
       file = File.new(html_file, "r")
 
       created_at_time = File.mtime(file)
-      puts "mtime for this post is #{created_at_time}"
 
       this_post = Post.new
-      this_post.title = html_file
+      this_post.filename = html_file
       this_post.timestamp = created_at_time
 
       while (line = file.gets)
@@ -48,7 +45,7 @@ class PostCompiler
     end
 
     posts_array.each do |post|
-      puts post
+      puts "Re-publishing #{post.filename}"
     end
 
     return posts_array
