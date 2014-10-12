@@ -21,4 +21,15 @@ If you don't want the Radiation-compiled blog to be located at `public_html/blog
 File.open("../public_html/blog.html", "w") do |f|
 ```
 
+### Making Radiation Easier to Run by Editing Your Bash Profile. 
 
+In `~/.bash_profile` you can add SOMETHING LIKE the following lines:
+
+```
+function radiation {
+    cwd=$(pwd)
+    cd ~/radiation
+    ruby bin/runner.rb
+    cd $cwd
+}
+```
