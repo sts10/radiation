@@ -1,4 +1,3 @@
-require 'pry'
 
 # 1. Initializes with a directory location, 
 # 2. takes timestamps and contents of all HTML files in that directory, 
@@ -35,7 +34,7 @@ class PostCompiler
 
       while (line = file.gets)
         if this_post.content
-          this_post.content = this_post.content + '\n' + line
+          this_post.content = this_post.content + line
         else 
           this_post.content = line;
         end
