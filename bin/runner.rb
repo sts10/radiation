@@ -2,7 +2,7 @@
 require_relative '../config/environment'
  
 if ARGV[0] == "publish"
-  posts = PostCompiler.new('posts/')
+  posts = PostCompiler.new('../posts/')
   posts_array = posts.compile 
 
   site_generator = SiteGenerator.new(posts_array)
@@ -30,7 +30,7 @@ else
     choice = gets.chomp
 
     if choice == "p" || choice == "P"
-      posts = PostCompiler.new('posts/')
+      posts = PostCompiler.new('../posts/')
       posts_array = posts.compile 
 
       site_generator = SiteGenerator.new(posts_array)
