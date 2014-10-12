@@ -12,3 +12,13 @@ Radiation is a simple blog CMS for totallynuclear.club pages.
 At this point your going to need to `cd` to the `radiation` directory to issue commands to Radiation. 
 
 Once you're in the `radiation`  directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. 
+
+### Changing Defaults 
+
+If you don't want the Radiation-compiled blog to be located at `public_html/blog.html`, just change it in the Radiation file: `radiation/lib/site_generator.rb` in the following line: 
+
+```
+File.open("../public_html/blog.html", "w") do |f|
+```
+
+
