@@ -61,7 +61,9 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 ### Bugs!
 
-If you have two posts, first_post and second_post, second_post should be displayed on top on first_post since it's newer. Even if first_post is modified after second_post is created, second_post should still be on top. With this current version of Radiation that's not the case. When first_post is modified (and then the user publishes using Radiation) the first_post all of sudden sits on top of second_post. Clearly I'm getting modified time when I want created time. 
+If you have two posts, first_post and second_post, second_post should be displayed on top on first_post since it's newer. Even if first_post is modified after second_post is created, second_post should still be on top, since I want then order in reverse chronological order by CREATION TIME. 
+
+With this current version of Radiation that's not the case. When first_post is modified (and then the user publishes using Radiation) the first_post all of sudden sits on top of second_post. Clearly I'm getting modified time when I want created time. 
 
 In `post_compiler.rb` I use `File.ctime` to try to get the time that a post was created (as opposed to modified, which I thought was `.mtime`). However when I go and modify an old post, then use Radiation to publish, the posts appear to be sorted in reverse order by MODIFIED time rather than created time. I like it so that you can go back and modify old posts without the posts on the blog re-ordering themselves. But like I said, I'm using `.ctime`. Not sure what the problem is.  
 
