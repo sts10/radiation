@@ -19,7 +19,8 @@ class Blog
       created_at_time = File.ctime(file)
 
       this_post = Post.new
-      this_post.filename = html_file
+      this_post.file_location = html_file
+      
       this_post.timestamp = created_at_time
 
       this_post.formatted_time = created_at_time.strftime "%l:%M%P, %A, %b %d, %Y"
@@ -40,7 +41,7 @@ class Blog
     end
 
     posts_array.each do |post|
-      puts "Re-publishing #{post.filename}"
+      puts "Re-publishing #{post.file_location}"
     end
 
     return posts_array

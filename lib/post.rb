@@ -1,5 +1,5 @@
 class Post
-  attr_accessor :filename, :timestamp, :formatted_time, :content
+  attr_accessor :file_location, :timestamp, :formatted_time, :content
 
   def create(file_name)
     @file_name = file_name
