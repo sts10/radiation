@@ -13,7 +13,6 @@ It could be: partial HTML files that live on the user's harddrive > `publish` co
 Interesting issues:
 - How to handle timestamps
 - What language do I want this to be written and executed in? 
-- How similar is this to the CMS I made for the Shareablee Insights blog? 
 
 Answers:
 - Find time that file was created
