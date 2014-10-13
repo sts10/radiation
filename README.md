@@ -67,6 +67,8 @@ With this current version of Radiation that's not the case. When first_post is m
 
 In `post_compiler.rb` I use `File.ctime` to try to get the time that a post was created (as opposed to modified, which I thought was `.mtime`). However when I go and modify an old post, then use Radiation to publish, the posts appear to be sorted in reverse order by MODIFIED time rather than created time. I like it so that you can go back and modify old posts without the posts on the blog re-ordering themselves. But like I said, I'm using `.ctime`. Not sure what the problem is.  
 
+UPDATE: This seems to be a problem due to the fact that Mac's don't store creation time in `ctiem` for whatever reason. I did a  [Google search](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=ruby+mac+creation+time+file&spell=1) but didn't find anything fool proof. Maybe [this](http://stream.btucker.org/post/65635235/file-creation-date-in-ruby-on-macs)? I'll play with it tomorrow hopefully.
+
 ### Hopefully Coming Soon
 
 - Permalinks for each post.
