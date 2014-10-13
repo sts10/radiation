@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.0.3 ☢
+# ☢ Radiation v 0.0.4 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. 
 
@@ -10,7 +10,7 @@ Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.c
 
 ### Usage 
 
-As of Radiation v 0.0.2, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
+As of Radiation v 0.0.4, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
 
 Once you're in the `radiation` directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
 
@@ -63,17 +63,18 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 ### Changelog
 
-0.0.3 has a much simplified model structure. Where there was post_compiler and site_generator, etc. there are now only two models: `post` and `blog`. `blog`, a new model, has a simple method called `publish!` that re-writes the `blog.html` file from the posts directory, using the `blog.html.erb` template.
+0.0.4
+To solve the problem of not being able to store post creation times, I decided to store that information in the names of new posts when they are created. See `Post#create` for how that works. 
+
+I then added two one-line methods to the `Post` model whose job it is to exact a datetime object from this filename, and a nicely-formatted version for printing to the blog.html. Both are called in the `Blog#compile`. Definitely could stand some refactoring, but I wrote how I saw it in my mind. 
+
+
+0.0.3 
+I greatly simplified model structure. Where there was post_compiler and site_generator, etc. there are now only two models: `post` and `blog`. `blog`, a new model, has a simple method called `publish!` that re-writes the `blog.html` file from the posts directory, using the `blog.html.erb` template.
 
 ### Bugs!
 
-If you have two posts, first_post and second_post, second_post should be displayed on top on first_post since it's newer. Even if first_post is modified after second_post is created, second_post should still be on top, since I want then order in reverse chronological order by CREATION TIME. 
-
-With this current version of Radiation that's not the case. When first_post is modified (and then the user publishes using Radiation) the first_post all of sudden sits on top of second_post. Clearly I'm getting modified time when I want created time. 
-
-In `post_compiler.rb` I use `File.ctime` to try to get the time that a post was created (as opposed to modified, which I thought was `.mtime`). However when I go and modify an old post, then use Radiation to publish, the posts appear to be sorted in reverse order by MODIFIED time rather than created time. I like it so that you can go back and modify old posts without the posts on the blog re-ordering themselves. But like I said, I'm using `.ctime`. Not sure what the problem is.  
-
-UPDATE: This seems to be a problem due to the fact that Mac's don't store creation time in `ctiem` for whatever reason. I did a  [Google search](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=ruby+mac+creation+time+file&spell=1) but didn't find anything fool proof. Maybe [this](http://stream.btucker.org/post/65635235/file-creation-date-in-ruby-on-macs)? I'll play with it tomorrow hopefully.
+- Post Creation Time bug has been fixed as of v 0.0.4. See Changelog for more information. 
 
 ### Hopefully Coming Soon
 
