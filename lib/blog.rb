@@ -7,7 +7,12 @@ class Blog
     html_files = directory_location_of_posts + '*.html'
 
     # sort html files in reverse chron order by creation time
-    html_files_sorted = Dir[html_files].sort_by{ |f| File.ctime(f) }.reverse
+    html_files_sorted = Dir[html_files].sort_by{ |f| 
+      # File.ctime(f) 
+      this_post = Post.new
+      created_at_time = this_post.get_created_at_time(f)
+      
+    }.reverse
     puts "I should be using ctime"
 
     post_id = 0
@@ -21,7 +26,7 @@ class Blog
       this_post = Post.new
       this_post.file_location = html_file
 
-      created_at_time = this_post.get_created_at_time(file)
+      created_at_time = this_post.get_created_at_time(html_file)
       this_post.timestamp = created_at_time
 
       this_post.formatted_time = created_at_time.strftime "%l:%M%P, %A, %b %d, %Y"
