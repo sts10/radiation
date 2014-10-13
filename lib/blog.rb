@@ -1,3 +1,4 @@
+require 'pry'
 
 class Blog   
 
@@ -16,11 +17,11 @@ class Blog
 
       file = File.new(html_file, "r")
 
-      created_at_time = File.ctime(file)
-
+  
       this_post = Post.new
       this_post.file_location = html_file
-      
+
+      created_at_time = this_post.get_created_at_time(file)
       this_post.timestamp = created_at_time
 
       this_post.formatted_time = created_at_time.strftime "%l:%M%P, %A, %b %d, %Y"
