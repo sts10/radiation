@@ -51,6 +51,10 @@ function radiation {
 
 Then you should be able to enter simply the word `radiation` from any directory and Radiation will run. When you quit Radiation you'll be returned to the directory you launched Radiation from.
 
+### Git Stuff
+
+If you're really buying into Radiation's ability to re-create your blog from your posts directory whenever you want, and you have your `public_html` directory git initialized, you might want to consider gitignoring `blog.html`. 
+
 ### Need Help?
 
 Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [http://www.twitter.com/sts10](on Twitter) with any questions or ideas. 
