@@ -6,13 +6,15 @@ Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.c
 
 1. Clone this directory into `~/` (so it's next to your public_html directory). To do this, run `cd ~` and then `git clone https://github.com/sts10/radiation.git`
 2. Next, you'll need to create a `posts` directory for your posts. This needs to be in `~/` as well. To do this, you can run `mkdir ~/posts`
-3. By default, Radiation creates you blog at ~/public_html/blog.html. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So it it's important to you, back it up somewhere safe! 
+3. By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
 
 ### Usage 
 
-At this point your going to need to `cd` to the `radiation` directory to issue commands to Radiation. 
+As of Radiation v 0.0.2, you're going to need to `cd` to the `radiation` directory to use Radiation. 
 
-Once you're in the `radiation`  directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly created posts in Vim. 
+Once you're in the `radiation` directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
+
+To edit posts just go into `~/posts` and edit the post you want to edit in whatever text editor you like. Then call Radiation and run the publish command from the menu. (Note the bugs section below though.)
 
 ### Where do my Posts Get Saved to? 
 
