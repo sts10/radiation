@@ -22,6 +22,7 @@ else
     puts "What do you want to do?"
     puts "p - publish your blog"
     puts "n - create new blog post"
+    puts "t - edit my blog template"
     puts "s - setup up my posts folder and a sample blog template for me!"
     puts "q - quit"
     
@@ -39,6 +40,10 @@ else
       new_post.create(new_post_name)
 
       new_post.edit
+    elsif choice == 't' || choice == 'T'
+      puts "Opening your blog template now"
+      system "vim ../radiation_templates/blog.html.erb"
+
     elsif choice == 's' || choice == 'S'
       puts "OK, we'll create a posts folder and a templates folder in the right place for you."
 
