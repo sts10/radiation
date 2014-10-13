@@ -29,6 +29,8 @@ class PostCompiler
       this_post.filename = html_file
       this_post.timestamp = created_at_time
 
+      this_post.formatted_time = created_at_time.strftime "%l:%M%P, %A, %b %d, %Y"
+
       while (line = file.gets)
         if this_post.content
           this_post.content = this_post.content + line

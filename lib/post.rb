@@ -1,4 +1,4 @@
 class Post
-  attr_accessor :filename, :timestamp, :content
+  attr_accessor :filename, :timestamp, :formatted_time, :content
 
 end 
