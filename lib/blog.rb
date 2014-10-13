@@ -22,10 +22,9 @@ class Blog
       this_post = Post.new
       this_post.file_location = file_location
 
-      created_at_time = file_location # for now.
-      this_post.timestamp = created_at_time
+      this_post.creation_datetime_obj = this_post.get_datetime_object(file_location)
 
-      this_post.formatted_time = created_at_time #  .strftime "%l:%M%P, %A, %b %d, %Y"
+      this_post.formatted_time = this_post.get_formatted_timestamp(this_post.creation_datetime_obj) #  .strftime "%l:%M%P, %A, %b %d, %Y"
 
       while (line = file.gets)
         if this_post.content
