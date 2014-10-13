@@ -1,12 +1,5 @@
 
-# 1. Initializes with a directory location, 
-# 2. takes timestamps and contents of all HTML files in that directory, 
-# 3. Uses template to dump all contents into new HTML file (in reeverse, with timestamp along for the ride)
- 
 class Blog   
-
-  # def initialize
-  # end
 
   def compile(directory_location)
   
