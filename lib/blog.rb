@@ -1,9 +1,9 @@
 
 class Blog   
 
-  def compile(directory_location)
+  def compile(directory_location_of_posts)
   
-    html_files = directory_location + '*.html'
+    html_files = directory_location_of_posts + '*.html'
 
     # sort html files in reverse chron order by creation time
     html_files_sorted = Dir[html_files].sort_by{ |f| File.ctime(f) }.reverse
@@ -61,8 +61,8 @@ class Blog
     
   end
 
-  def publish!(directory_location)
-    @posts_array = self.compile(directory_location)
+  def publish!(directory_location_of_posts)
+    @posts_array = self.compile(directory_location_of_posts)
 
     self.make_blog!(@posts_array)
 
