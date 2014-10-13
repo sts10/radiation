@@ -1,4 +1,3 @@
-require 'pry'
 
 class Blog   
 
@@ -11,7 +10,7 @@ class Blog
       # File.ctime(f) 
       this_post = Post.new
       created_at_time = this_post.get_created_at_time(f)
-      
+
     }.reverse
     puts "I should be using ctime"
 
