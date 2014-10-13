@@ -7,12 +7,9 @@ class Blog
 
     # sort html files in reverse chron order by creation time
     html_files_sorted = Dir[html_files].sort_by{ |f| 
-      # File.ctime(f) 
-      this_post = Post.new
-      created_at_time = this_post.get_created_at_time(f)
-
+      File.basename(f)
     }.reverse
-    puts "I should be using ctime"
+    puts "I should be sorting by basename"
 
     post_id = 0
     posts_array = []
@@ -25,10 +22,10 @@ class Blog
       this_post = Post.new
       this_post.file_location = html_file
 
-      created_at_time = this_post.get_created_at_time(html_file)
+      created_at_time = html_file # for now.
       this_post.timestamp = created_at_time
 
-      this_post.formatted_time = created_at_time.strftime "%l:%M%P, %A, %b %d, %Y"
+      this_post.formatted_time = created_at_time #  .strftime "%l:%M%P, %A, %b %d, %Y"
 
       while (line = file.gets)
         if this_post.content
