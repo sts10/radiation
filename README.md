@@ -59,7 +59,7 @@ If you're really buying into Radiation's ability to re-create your blog from you
 
 ### Need Help?
 
-Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [http://www.twitter.com/sts10](on Twitter) with any questions or ideas.
+Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [on Twitter](http://www.twitter.com/sts10) with any questions or ideas.
 
 ### Bugs!
 
