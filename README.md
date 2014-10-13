@@ -1,4 +1,4 @@
-#  Radiation v 0.0.2
+# ☢ Radiation v 0.0.2 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. 
 
@@ -10,7 +10,7 @@ Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.c
 
 ### Usage 
 
-As of Radiation v 0.0.2, you're going to need to `cd` to the `radiation` directory to use Radiation. 
+As of Radiation v 0.0.2, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
 
 Once you're in the `radiation` directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
 
