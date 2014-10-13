@@ -47,6 +47,8 @@ class Blog
   end
 
   def make_blog!(posts_array)
+    @posts_array = posts_array
+
     puts "Creating new blog.html..."
     template_doc= File.open("lib/templates/blog.html.erb", "r")
 
@@ -62,9 +64,9 @@ class Blog
   end
 
   def publish!(directory_location_of_posts)
-    @posts_array = self.compile(directory_location_of_posts)
+    posts_array = self.compile(directory_location_of_posts)
 
-    self.make_blog!(@posts_array)
+    self.make_blog!(posts_array)
 
     puts "☢☢☢ Publishing was (probably) successful! ☢☢☢"
   end
