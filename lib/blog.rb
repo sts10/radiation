@@ -53,7 +53,7 @@ class Blog
     @posts_array = posts_array
 
     puts "Creating new blog.html..."
-    template_doc= File.open("lib/templates/blog.html.erb", "r")
+    template_doc= File.open("../radiation_templates/blog.html.erb", "r")
 
     template = ERB.new(template_doc.read)
     
