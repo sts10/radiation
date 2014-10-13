@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body>
+    <div id="header">
+        <h1>~Username Here If You Want!</h1>
+    </div>
+    <p>This is the template for your blog. It's written in ERB.</p>
+    <p>Maybe a header menu would go here!</p>
+    <p>By default file loads CSS from '~/public_html/css/styles.css' but you can change that.</p>
+    
+    <div id="blog">
+        <% @posts_array.each do |post| %>
+            <div class="blog_post">   
+              
+                <div class="date"><%= post.formatted_time %></div>
+                <%= post.content %>
+        
+            </div>
+        <% end %>
+    </div>
+  </body>
+</html>

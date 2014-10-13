@@ -22,6 +22,7 @@ else
     puts "What do you want to do?"
     puts "p - publish your blog"
     puts "n - create new blog post"
+    puts "s - setup up my posts folder and a sample blog template for me!"
     puts "q - quit"
     
     choice = gets.chomp
@@ -38,6 +39,15 @@ else
       new_post.create(new_post_name)
 
       new_post.edit
+    elsif choice == 's' || choice == 'S'
+      puts "OK, we'll create a posts folder and a templates folder in the right place for you."
+
+      system "mkdir ../posts"
+      system "mkdir ../radiation_templates"
+      system "ls"
+      system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
+
+      puts "Done. Now go to ~/templates/blog.html.erb to fill in your personal information."
     end
   end
 
