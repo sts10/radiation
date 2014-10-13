@@ -12,9 +12,9 @@ else
   choice = ''
   while choice != 'q'
     puts ""
-    puts "                       "
+    puts "   ☢                 ☢   "
     puts "  ☢☢☢               ☢☢☢  "
-    puts " ☢☢☢☢☢             ☢☢☢☢☢  "
+    puts " ☢☢☢☢☢             ☢☢☢☢☢ "
     puts "☢☢☢☢☢☢☢ RADIATION ☢☢☢☢☢☢☢"
     puts "           ☢☢☢           "
     puts "          ☢☢☢☢☢          "
@@ -39,7 +39,6 @@ else
       puts "Please enter an html file name for your new post (Example: a-laid-back-sunday.html)"
       new_post_name = gets.chomp
       new_post = PostCreator.new(new_post_name)
-      # new_post.add ?
     end
   end
 
