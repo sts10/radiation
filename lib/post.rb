@@ -1,4 +1,3 @@
-require 'date'
 
 class Post
   attr_accessor :file_location, :creation_datetime_obj, :formatted_time, :content
@@ -17,8 +16,7 @@ class Post
   end
 
   def get_datetime_object(file_location)
-    # ../posts/2014-10-13-17-27-33-second-post.html
-    # file_location.gsub('+', ':')
+    # I just shove the full file_location into DateTime.parse, with a gsub for the time colons, and it works like magic
     DateTime.parse(file_location.gsub('+', ':'))
   end
 

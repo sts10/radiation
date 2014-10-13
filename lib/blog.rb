@@ -22,6 +22,7 @@ class Blog
       this_post = Post.new
       this_post.file_location = file_location
 
+      # the following two lines could probably be refactored
       this_post.creation_datetime_obj = this_post.get_datetime_object(file_location)
 
       this_post.formatted_time = this_post.get_formatted_timestamp(this_post.creation_datetime_obj) #  .strftime "%l:%M%P, %A, %b %d, %Y"
