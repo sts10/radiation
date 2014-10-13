@@ -57,11 +57,14 @@ If you're really buying into Radiation's ability to re-create your blog from you
 
 ### Need Help?
 
-Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [http://www.twitter.com/sts10](on Twitter) with any questions or ideas. 
+Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [http://www.twitter.com/sts10](on Twitter) with any questions or ideas.
+
+### Bugs!
+
+In `post_compiler.rb` I use `File.ctime` to try to get the time that a post was created (as opposed to modified, which I thought was `.mtime`). However when I go and modify an old post, then use Radiation to publish, the posts appear to be sorted in reverse order by MODIFIED time rather than created time. I like it so that you can go back and modify old posts without the posts on the blog re-ordering themselves. But like I said, I'm using `.ctime`. Not sure what the problem is.  
 
 ### Hopefully Coming Soon
 
-- Prettier Display of timestamp on posts
 - Permalinks for each post.
 - Pagination
 - Support for multiple text editors

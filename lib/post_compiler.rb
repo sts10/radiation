@@ -14,7 +14,8 @@ class PostCompiler
     html_files = @directory_location + '*.html'
 
     # sort html files in reverse chron order by creation time
-    html_files_sorted = Dir[html_files].sort_by{ |f| File.mtime(f) }.reverse
+    html_files_sorted = Dir[html_files].sort_by{ |f| File.ctime(f) }.reverse
+    puts "I should be using ctime"
 
     post_id = 0
     posts_array = []
@@ -23,7 +24,7 @@ class PostCompiler
 
       file = File.new(html_file, "r")
 
-      created_at_time = File.mtime(file)
+      created_at_time = File.ctime(file)
 
       this_post = Post.new
       this_post.filename = html_file
