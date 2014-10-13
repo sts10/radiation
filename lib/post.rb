@@ -16,7 +16,12 @@ class Post
     system "vim ../posts/#{@file_name}"
   end
 
-  # def get_created_at_time(file_location)
-  #   File.ctime(file_object) # this doesn't work for some buggy reason
-  # end
+  def get_datetime_object(file_location)
+    # ../posts/2014-10-13-17-27-33-second-post.html
+    file_name = /[^\/]+$/.match(file_location).string # everything after last /
+  end
+
+  def get_formatted_timestamp(file_location)
+    File.ctime(file_object) # this doesn't work for some buggy reason
+  end
 end 

@@ -14,15 +14,15 @@ class Blog
     post_id = 0
     posts_array = []
 
-    Dir.glob(html_files_sorted) do |html_file|
+    Dir.glob(html_files_sorted) do |file_location|
 
-      file = File.new(html_file, "r")
+      file = File.new(file_location, "r")
 
   
       this_post = Post.new
-      this_post.file_location = html_file
+      this_post.file_location = file_location
 
-      created_at_time = html_file # for now.
+      created_at_time = file_location # for now.
       this_post.timestamp = created_at_time
 
       this_post.formatted_time = created_at_time #  .strftime "%l:%M%P, %A, %b %d, %Y"
