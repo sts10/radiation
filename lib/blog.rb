@@ -3,15 +3,14 @@
 # 2. takes timestamps and contents of all HTML files in that directory, 
 # 3. Uses template to dump all contents into new HTML file (in reeverse, with timestamp along for the ride)
  
-class PostCompiler   
+class Blog   
 
-  def initialize(directory_location)
-    @directory_location = directory_location
-  end
+  # def initialize
+  # end
 
-  def compile
+  def compile(directory_location)
   
-    html_files = @directory_location + '*.html'
+    html_files = directory_location + '*.html'
 
     # sort html files in reverse chron order by creation time
     html_files_sorted = Dir[html_files].sort_by{ |f| File.ctime(f) }.reverse
@@ -52,6 +51,29 @@ class PostCompiler
     end
 
     return posts_array
+  end
+
+  def make_blog!(posts_array)
+    puts "Creating new blog.html..."
+    template_doc= File.open("lib/templates/blog.html.erb", "r")
+
+    template = ERB.new(template_doc.read)
+    
+    File.open("../public_html/blog.html", "w") do |f|
+        f.write(
+          template.result(binding) # result is an ERB method. bidning means we're passing all local variables to the template. 
+        )
+      f.close
+    end
+    
+  end
+
+  def publish!(directory_location)
+    @posts_array = self.compile(directory_location)
+
+    self.make_blog!(@posts_array)
+
+    puts "☢☢☢ Publishing was (probably) successful! ☢☢☢"
   end
   
 

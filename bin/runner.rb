@@ -2,11 +2,8 @@
 require_relative '../config/environment'
  
 if ARGV[0] == "publish"
-  posts = PostCompiler.new('../posts/')
-  posts_array = posts.compile 
-
-  site_generator = SiteGenerator.new(posts_array)
-  site_generator.make_page!
+  this_blog = Blog.new
+  this_blog.publish!('../posts/')
 else
 
   choice = ''
@@ -30,11 +27,9 @@ else
     choice = gets.chomp
 
     if choice == "p" || choice == "P"
-      posts = PostCompiler.new('../posts/')
-      posts_array = posts.compile 
+      this_blog = Blog.new
+      this_blog.publish!('../posts/')
 
-      site_generator = SiteGenerator.new(posts_array)
-      site_generator.make_page!
     elsif choice == 'n' || choice == "N"
       puts "Please enter an html file name for your new post (Example: a-laid-back-sunday.html)"
       new_post_name = gets.chomp
