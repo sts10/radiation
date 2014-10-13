@@ -10,8 +10,7 @@
     <div id="blog">
         <% @posts_array.each do |post| %>
             <div class="blog_post">   
-                <!-- New post: <br> -->
-                <%#= post.title %><!-- <br> -->
+              
                 <div class="date"><%= post.formatted_time %></div>
                 <%= post.content %>
         
