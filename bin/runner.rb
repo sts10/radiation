@@ -51,9 +51,20 @@ else
       this_blog.publish!('../posts/')
 
     elsif choice == 'n' || choice == "N"
-      puts "Please enter an html file name for your new post (Example: a-laid-back-sunday.html). (Enter 'q' to return to main menu.)"
-      new_post_name = gets.chomp
+      puts "Please enter an html file name for your new post (Example: My First Post). (Enter 'q' to return to main menu.)"
+      new_post_name = gets.chomp.strip
       if new_post_name != 'q' && new_post_name != 'Q'
+
+        # clean new_post_name
+        new_post_name = new_post_name.downcase
+        if (new_post_name[-5..-1] == ".html")
+          new_post_name = new_post_name[0..-5]
+        elsif (new_post_name[-4..-1] == ".htm")
+          new_post_name = new_post_name[0..-4]
+        end
+        new_post_name = new_post_name.strip.gsub(' ', '-').gsub('?', '').gsub('.', '').gsub('!', '').gsub(':', '').gsub('"', '').gsub("'", "")
+        new_post_name = new_post_name + ".html"
+
         new_post = Post.new
         new_post.create(new_post_name)
 
