@@ -4,6 +4,22 @@ require_relative '../config/environment'
 if ARGV[0] == "publish"
   this_blog = Blog.new
   this_blog.publish!('../posts/')
+elsif ARGV[0] == "setup"
+  puts "OK, we'll create a posts folder and a templates folder in the right place for you."
+
+  system "mkdir ../posts"
+  system "mkdir ../radiation_templates"
+  system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
+
+  puts ""
+  puts ""
+  puts "Radiation is now installed!"
+  puts ""
+  puts ""
+
+  puts "You may want to go to ~/templates/blog.html.erb to fill in your personal information."
+  puts "See ReadMe for more information. We strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
+  
 else
 
   puts ""
@@ -46,16 +62,6 @@ else
     elsif choice == 't' || choice == 'T'
       puts "Opening your blog template now"
       system "vim ../radiation_templates/blog.html.erb"
-
-    elsif choice == 's' || choice == 'S'
-      puts "OK, we'll create a posts folder and a templates folder in the right place for you."
-
-      system "mkdir ../posts"
-      system "mkdir ../radiation_templates"
-      system "ls"
-      system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
-
-      puts "Done. Now go to ~/templates/blog.html.erb to fill in your personal information."
     end
   end
 
