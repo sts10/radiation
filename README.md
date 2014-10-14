@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.0.6 ☢
+# ☢ Radiation v 0.0.7 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/blog.html). 
 
@@ -15,7 +15,7 @@ Note: By default, Radiation creates your blog at `~/public_html/blog.html`. If y
 
 ### Usage 
 
-As of Radiation v 0.0.6, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
+As of Radiation v 0.0.7, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
 
 Once you're in `~/radiation`, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
 
@@ -99,7 +99,7 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 ### I Know Some Ruby/ERB/Shell. How Can I Help? 
 
-Awesome! Radiation, as of v 0.0.6 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
+Awesome! Radiation, as of v 0.0.7 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
 
 **`bin/runner.rb` is a great place to start if you're new to the project.**
 
@@ -130,6 +130,15 @@ I'd love to have the blog ERB template to make the dates of the posts permalinks
 
 
 # Changelog
+
+#### What's New in v 0.0.7
+
+`runner.rb` now only presents the main menu if it verifies that the user has:
+1. a `~/posts/` directory 
+2. a `~/radiation_templates` directory
+3. and a file `~/radiation_templates/blog.html.erb`
+
+If the user doesn't, it assumes the user is not setup. It then asks the user y/n if he or she would like to run the setup now. 
 
 #### What's New in v 0.0.6 
 
