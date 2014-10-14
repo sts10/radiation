@@ -51,7 +51,7 @@ else
       this_blog.publish!('../posts/')
 
     elsif choice == 'n' || choice == "N"
-      puts "Please enter an html file name for your new post (Example: My First Post). (Enter 'q' to return to main menu.)"
+      puts "Please enter a file name for your new post (Example: My First Post). (Enter 'q' to return to main menu.)"
       new_post_name = gets.chomp.strip
       if new_post_name != 'q' && new_post_name != 'Q'
 
