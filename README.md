@@ -68,14 +68,20 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 ### Changelog
 
-0.0.4
+#### v 0.0.5
+
+Significant changes. 
+1. the blog.html.erb template that Radiation actually uses now lives **outside** of the `radiation` directory, like the `posts` directory. This is primarily so that current users will be able to "upgrade" to new versions of Radiation and not lose their blog.html.erb template. 
+2. Partially as a result of this change, I decided to write a script for new users to setup Radiation. See the installation section above for more information. 
+
+#### v 0.0.4
 To solve the problem of not being able to store post creation times, I decided to store that information in the names of new posts when they are created. See `Post#create` for how that works. 
 
 I then added two one-line methods to the `Post` model whose job it is to exact a datetime object from this filename, and a nicely-formatted version for printing to the blog.html. Both are called in the `Blog#compile`. Definitely could stand some refactoring, but I wrote how I saw it in my mind. 
 
 Since newly-created posts now get their creation time put into the filename, in a way this version is a **breaking change** for older users. You'll need to either add the timestamp to your post filenames by hand, or re-create them using Radiate. Sorry about that. 
 
-0.0.3 
+#### v 0.0.3
 I greatly simplified model structure. Where there was post_compiler and site_generator, etc. there are now only two models: `post` and `blog`. `blog`, a new model, has a simple method called `publish!` that re-writes the `blog.html` file from the posts directory, using the `blog.html.erb` template.
 
 ### Bugs!
