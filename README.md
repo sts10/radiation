@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.0.5 ☢
+# ☢ Radiation v 0.0.6 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/blog.html). 
 
@@ -15,7 +15,7 @@ Note: By default, Radiation creates your blog at `~/public_html/blog.html`. If y
 
 ### Usage 
 
-As of Radiation v 0.0.5, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
+As of Radiation v 0.0.6, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
 
 Once you're in `~/radiation`, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
 
@@ -99,7 +99,7 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 ### I Know Some Ruby/ERB/Shell. How Can I Help? 
 
-Awesome! Radiation, as of v 0.0.5 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
+Awesome! Radiation, as of v 0.0.6 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
 
 **`bin/runner.rb` is a great place to start if you're new to the project.**
 
@@ -130,6 +130,12 @@ I'd love to have the blog ERB template to make the dates of the posts permalinks
 
 
 # Changelog
+
+#### What's New in v 0.0.6 
+
+File names of new posts are cleaned and formatted by a handful of lines of Ruby in runner.rb. Users can now use spaces, questions, marks, uppercase letters, etc and, most importantly, they can add the '.html' file extension or not. Either way, it will come out the other side of the snippet downcased, no spaces or other weird characters, and with a clean .html extension. 
+
+Also, users can now abort the creation of new posts by entering 'q' for the name of a new post.
 
 #### v 0.0.5
 
