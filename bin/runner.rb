@@ -42,7 +42,6 @@ else
     puts "p - publish your blog"
     puts "n - create new blog post"
     puts "t - edit my blog template"
-    puts "s - setup up my posts folder and a sample blog template for me!"
     puts "q - quit"
     
     choice = gets.chomp
