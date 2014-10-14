@@ -17,7 +17,7 @@ elsif ARGV[0] == "setup"
   puts ""
   puts ""
 
-  puts "You may want to go to ~/templates/blog.html.erb to fill in your personal information."
+  puts "You may want to go to ~/radiation_templates/blog.html.erb to fill in your personal information."
   puts "See ReadMe for more information. We strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
   
 else
