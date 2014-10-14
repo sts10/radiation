@@ -133,7 +133,9 @@ I'd love to have the blog ERB template to make the dates of the posts permalinks
 
 #### What's New in v 0.0.6 
 
-File names of new posts are cleaned and formatted by a handful of lines of Ruby in runner.rb. Users can now use spaces, questions, marks, uppercase letters, etc and, most importantly, they can add the '.html' file extension or not. Either way, it will come out the other side of the snippet downcased, no spaces or other weird characters, and with a clean .html extension. 
+File names of new posts are cleaned and formatted by a handful of lines of Ruby in class `Post`'s `create` method. 
+
+Users can now use spaces, questions, marks, uppercase letters, etc and, most importantly, they can add the '.html' file extension or not. Either way, the string will downcased, no spaces or other weird characters, and with a clean .html extension by the time the `File.new` is executed. 
 
 Also, users can now abort the creation of new posts by entering 'q' for the name of a new post.
 

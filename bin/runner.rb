@@ -55,17 +55,6 @@ else
       new_post_name = gets.chomp.strip.downcase
       
       if new_post_name != 'q'
-
-        # clean new_post_name
-    
-        if (new_post_name[-5..-1] == ".html")
-          new_post_name = new_post_name[0..-5]
-        elsif (new_post_name[-4..-1] == ".htm")
-          new_post_name = new_post_name[0..-4]
-        end
-        new_post_name = new_post_name.strip.gsub(' ', '-').gsub('?', '').gsub('.', '').gsub('!', '').gsub(':', '').gsub('"', '').gsub("'", "")
-        new_post_name = new_post_name + ".html"
-
         new_post = Post.new
         new_post.create(new_post_name)
 

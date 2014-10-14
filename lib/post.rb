@@ -2,11 +2,27 @@
 class Post
   attr_accessor :file_location, :creation_datetime_obj, :formatted_time, :content
 
-  def create(file_name)
+  def create(new_post_name)
+
+    # clean new_post_name
+
+    if (new_post_name[-5..-1] == ".html")
+      new_post_name = new_post_name[0..-5]
+    elsif (new_post_name[-4..-1] == ".htm")
+      new_post_name = new_post_name[0..-4]
+    end
+    new_post_name = new_post_name.strip.gsub(' ', '-').gsub('?', '').gsub('.', '').gsub('!', '').gsub(':', '').gsub('"', '').gsub("'", "")
+
+    # Add file extension
+    new_post_name = new_post_name + ".html"
+
+    # Add current time
+
     current_time = Time.new
-    full_file_name = current_time.strftime "%Y-%m-%eT%H+%M+%S-" + file_name
-    @file_name = full_file_name
     
+    @file_name = current_time.strftime "%Y-%m-%eT%H+%M+%S-" + new_post_name
+    
+    # create a blank file  
     new_post = File.new("../posts/#{@file_name}", 'w')
     new_post.close
   end
