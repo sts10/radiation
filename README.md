@@ -1,6 +1,8 @@
 # ☢ Radiation v 0.0.5 ☢
 
-Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. 
+Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/blog.html). 
+
+## Getting Started
 
 ### Installation
 
@@ -43,6 +45,13 @@ If you don't want the Radiation-compiled blog to be located at `public_html/blog
 File.open("../public_html/blog.html", "w") do |f|
 ```
 
+For example, if you wanted your totallynuclear.club homepage to be your blog, you'd change that line to:
+
+```
+File.open("../public_html/index.html", "w") do |f|
+```
+
+
 ### Making Radiation Easier to Run by Editing Your Bash Profile. 
 
 In `~/.bash_profile` you can add SOMETHING LIKE the following lines:
@@ -58,20 +67,49 @@ function radiation {
 
 Then you should be able to enter simply the word `radiation` from any directory and Radiation will run. When you quit Radiation you'll be returned to the directory you launched Radiation from.
 
-### Git Stuff
+### Git Ignore Suggestion
 
 If you're really buying into Radiation's ability to re-create your blog from your posts directory whenever you want, and you have your `public_html` directory git initialized, you might want to consider gitignoring `blog.html`. 
 
+### Does Radiation Work On Other Clubs like Tilde Club? 
+
+To be honest I don't know! This is because I don't have a Tilde Club account so I can't test it. BUT judging by this [Tilde Club Primer](http://tilde.club/~anthonydpaul/primer.html) it looks like the directory structure of a fresh Tilde Club account is exactly the same as the directory structure for a fresh Totallynuclear Club account (i.e. in ~/ there's a `public_html` directory for things to go on your site). So if that's all true, then yes, Radiation should work for Tilde Club sites.
+ 
 ### Need Help?
 
-Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [on Twitter](http://www.twitter.com/sts10) with any questions or ideas.
+Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [on Twitter](http://www.twitter.com/sts10) or at schlink@totallynuclear.club with any questions or ideas.
+
+
+
+## Development
+
+### I Know Some Ruby/ERB/Shell. How Can I Help? 
+
+Awesome! Radiation, as of v 0.0.5 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. **`bin/runner.rb` is a great place to start if you're new to the project.**
+
+### Some things I could use help on:
+
+#### RegEx
+
+If you're good with Ruby and RegEx I need help with the `get_datetime_object` method in the `Post` class (`post.rb`). That method is supposed to take the filename string that is created in the `create` method above it and convert it into a DateTime object. Look at the corresponding code in the `compile` method of the Blog class (`blog.rb`) to get a better idea of what's going on. 
+
+Currently I'm just shoving the full file_location, which a string that looks like `"../posts/2014-10-13T20+02+32-another-post.html"`, gsubbing the plus signs for colons, and then passing that beast into `DateTime.parse`. 
+
+Miraculously this worked in irb and it works in program currently, but it seems shaky to me. I'd rather have some reg ex magic in that method to extract `"2014-10-13T20+02+32"` from `"../posts/2014-10-13T20+02+32-another-post.html"`. Does that make sense? 
+
+#### Permalinks
+
+I'd love to have the blog ERB template to make the dates of the posts permalinks. A sample of the blog ERB template is in the `sample_templates` directory (look in `runner.rb` to see how the install command works). I don't know how I want to generate the permalink string-- maybe using the full post filename? Open to ideas/discussion in GitHub Issues.  
+
 
 ### Changelog
 
 #### v 0.0.5
 
 Significant changes. 
+
 1. the blog.html.erb template that Radiation actually uses now lives **outside** of the `radiation` directory, like the `posts` directory. This is primarily so that current users will be able to "upgrade" to new versions of Radiation and not lose their blog.html.erb template. 
+
 2. Partially as a result of this change, I decided to write a script for new users to setup Radiation. See the installation section above for more information. 
 
 #### v 0.0.4
@@ -84,9 +122,6 @@ Since newly-created posts now get their creation time put into the filename, in 
 #### v 0.0.3
 I greatly simplified model structure. Where there was post_compiler and site_generator, etc. there are now only two models: `post` and `blog`. `blog`, a new model, has a simple method called `publish!` that re-writes the `blog.html` file from the posts directory, using the `blog.html.erb` template.
 
-### Bugs!
-
-- Post Creation Time bug has been fixed as of v 0.0.4. See Changelog for more information. 
 
 ### Hopefully Coming Soon
 
