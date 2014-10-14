@@ -44,19 +44,20 @@ else
     puts "t - edit my blog template"
     puts "q - quit"
     
-    choice = gets.chomp
+    choice = gets.chomp.strip.downcase
 
-    if choice == "p" || choice == "P"
+    if choice == "p"
       this_blog = Blog.new
       this_blog.publish!('../posts/')
 
-    elsif choice == 'n' || choice == "N"
+    elsif choice == 'n'
       puts "Please enter a file name for your new post (Example: My First Post). (Enter 'q' to return to main menu.)"
-      new_post_name = gets.chomp.strip
-      if new_post_name != 'q' && new_post_name != 'Q'
+      new_post_name = gets.chomp.strip.downcase
+      
+      if new_post_name != 'q'
 
         # clean new_post_name
-        new_post_name = new_post_name.downcase
+    
         if (new_post_name[-5..-1] == ".html")
           new_post_name = new_post_name[0..-5]
         elsif (new_post_name[-4..-1] == ".htm")
@@ -70,7 +71,7 @@ else
 
         new_post.edit
       end
-    elsif choice == 't' || choice == 'T'
+    elsif choice == 't'
       puts "Opening your blog template now"
       system "vim ../radiation_templates/blog.html.erb"
     end
