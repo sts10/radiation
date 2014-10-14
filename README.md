@@ -29,7 +29,7 @@ Note: If you use git feel free to run `git init` in the posts directory.
 
 ### Editing the Blog Template 
 
-Radiation uses ERB for templating. If you don't know ERB, you can probably figure it out. Head on over to `radiation/lib/templates/blog.html.erb` and take a look. 
+Radiation uses ERB for templating. If you don't know ERB, you can probably figure it out. Once you've setup Radiation, you can head on over to `~/radiation_templates/blog.html.erb` and take a look at the sample template. 
 
 ### How Do I Write CSS or JavaScript for my Blog?
 
