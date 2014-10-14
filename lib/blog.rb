@@ -9,7 +9,6 @@ class Blog
     html_files_sorted = Dir[html_files].sort_by{ |f| 
       File.basename(f)
     }.reverse
-    puts "I should be sorting by basename"
 
     post_id = 0
     posts_array = []
