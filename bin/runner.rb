@@ -51,13 +51,14 @@ else
       this_blog.publish!('../posts/')
 
     elsif choice == 'n' || choice == "N"
-      puts "Please enter an html file name for your new post (Example: a-laid-back-sunday.html)"
+      puts "Please enter an html file name for your new post (Example: a-laid-back-sunday.html). (Enter 'q' to return to main menu.)"
       new_post_name = gets.chomp
-      
-      new_post = Post.new
-      new_post.create(new_post_name)
+      if new_post_name != 'q' && new_post_name != 'Q'
+        new_post = Post.new
+        new_post.create(new_post_name)
 
-      new_post.edit
+        new_post.edit
+      end
     elsif choice == 't' || choice == 'T'
       puts "Opening your blog template now"
       system "vim ../radiation_templates/blog.html.erb"
