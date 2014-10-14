@@ -60,6 +60,11 @@ else
           new_post.create(new_post_name)
 
           new_post.edit
+
+          puts ""
+          puts "Awesome post!"
+          puts "Note: You must publish your blog for your new post to appear."
+          puts ""
         end
       elsif choice == 't'
         puts "Opening your blog template now"

@@ -71,6 +71,8 @@ class Blog
     self.make_blog!(posts_array)
 
     puts "☢☢☢ Publishing was (probably) successful! ☢☢☢"
+    puts ""
+
   end
   
 
