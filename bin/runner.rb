@@ -61,7 +61,7 @@ else
 
           new_post.edit
 
-          puts ""
+          system "clear"
           puts "Awesome post!"
           puts "Note: You must publish your blog for your new post to appear."
           puts ""
