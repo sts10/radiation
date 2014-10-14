@@ -2,7 +2,7 @@
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/blog.html). 
 
-## Getting Started
+# Getting Started
 
 ### Installation
 
@@ -81,11 +81,13 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 
 
-## Development
+# Development
 
 ### I Know Some Ruby/ERB/Shell. How Can I Help? 
 
-Awesome! Radiation, as of v 0.0.5 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. **`bin/runner.rb` is a great place to start if you're new to the project.**
+Awesome! Radiation, as of v 0.0.5 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
+
+**`bin/runner.rb` is a great place to start if you're new to the project.**
 
 ### Some things I could use help on:
 
@@ -95,6 +97,13 @@ If you're good with Ruby and RegEx I need help with the `get_datetime_object` me
 
 Currently I'm just shoving the full file_location, which a string that looks like `"../posts/2014-10-13T20+02+32-another-post.html"`, gsubbing the plus signs for colons, and then passing that beast into `DateTime.parse`. 
 
+```
+def get_datetime_object(file_location)
+  # I just shove the full file_location into DateTime.parse, with a gsub for the time colons, and it works like magic
+  DateTime.parse(file_location.gsub('+', ':'))
+end
+```
+
 Miraculously this worked in irb and it works in program currently, but it seems shaky to me. I'd rather have some reg ex magic in that method to extract `"2014-10-13T20+02+32"` from `"../posts/2014-10-13T20+02+32-another-post.html"`. Does that make sense? 
 
 #### Permalinks
@@ -102,7 +111,7 @@ Miraculously this worked in irb and it works in program currently, but it seems 
 I'd love to have the blog ERB template to make the dates of the posts permalinks. A sample of the blog ERB template is in the `sample_templates` directory (look in `runner.rb` to see how the install command works). I don't know how I want to generate the permalink string-- maybe using the full post filename? Open to ideas/discussion in GitHub Issues.  
 
 
-### Changelog
+# Changelog
 
 #### v 0.0.5
 
@@ -123,7 +132,7 @@ Since newly-created posts now get their creation time put into the filename, in 
 I greatly simplified model structure. Where there was post_compiler and site_generator, etc. there are now only two models: `post` and `blog`. `blog`, a new model, has a simple method called `publish!` that re-writes the `blog.html` file from the posts directory, using the `blog.html.erb` template.
 
 
-### Hopefully Coming Soon
+# Hopefully Coming Soon
 
 - Permalinks for each post.
 - Pagination
