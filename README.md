@@ -71,7 +71,7 @@ Then you should be able to enter simply the word `radiation` from any directory 
 
 If you're really buying into Radiation's ability to re-create your blog from your posts directory whenever you want, and you have your `public_html` directory git initialized, you might want to consider gitignoring `blog.html`. 
 
-### Why Do Posts and Templates Live Outside of the Radiation Directory
+### Why Do Posts and Templates Live Outside of the Radiation Directory?
 
 If you use the setup command described in the installation instructions above, Radiation should give you the following directory structure:
 
