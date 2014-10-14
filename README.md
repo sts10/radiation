@@ -71,6 +71,20 @@ Then you should be able to enter simply the word `radiation` from any directory 
 
 If you're really buying into Radiation's ability to re-create your blog from your posts directory whenever you want, and you have your `public_html` directory git initialized, you might want to consider gitignoring `blog.html`. 
 
+### Why Do Posts and Templates Live Outside of the Radiation Directory
+
+If you use the setup command described in the installation instructions above, Radiation should give you the following directory structure:
+
+```
+~/public_html
+~/radiation
+~/radiation_templates
+~/posts
+```
+
+The reason that both `posts` and `radiation_templates` sit outside of the `radiation` directory is so that when users `git pull` a newer version of Radiation it doesn't overwrite their posts or their personalized `blog.html.erb` template.
+
+
 ### Does Radiation Work On Other Clubs like Tilde Club? 
 
 To be honest I don't know! This is because I don't have a Tilde Club account so I can't test it. BUT judging by this [Tilde Club Primer](http://tilde.club/~anthonydpaul/primer.html) it looks like the directory structure of a fresh Tilde Club account is exactly the same as the directory structure for a fresh Totallynuclear Club account (i.e. in ~/ there's a `public_html` directory for things to go on your site). So if that's all true, then yes, Radiation should work for Tilde Club sites.
@@ -97,7 +111,7 @@ If you're good with Ruby and RegEx I need help with the `get_datetime_object` me
 
 Currently I'm just shoving the full file_location, which a string that looks like `"../posts/2014-10-13T20+02+32-another-post.html"`, gsubbing the plus signs for colons, and then passing that beast into `DateTime.parse`. 
 
-```
+```ruby
 def get_datetime_object(file_location)
   # I just shove the full file_location into DateTime.parse, with a gsub for the time colons, and it works like magic
   DateTime.parse(file_location.gsub('+', ':'))
@@ -105,6 +119,10 @@ end
 ```
 
 Miraculously this worked in irb and it works in program currently, but it seems shaky to me. I'd rather have some reg ex magic in that method to extract `"2014-10-13T20+02+32"` from `"../posts/2014-10-13T20+02+32-another-post.html"`. Does that make sense? 
+
+#### Installation Process
+
+I really don't like how I currently require new users to paste that clunk bash function into their `.bash_profile`. I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. Would love any hints/ideas on how to do that. 
 
 #### Permalinks
 
