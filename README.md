@@ -15,7 +15,7 @@ Note: By default, Radiation creates your blog at `~/public_html/blog.html`. If y
 
 As of Radiation v 0.0.5, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
 
-Once you're in the `radiation` directory, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
+Once you're in `~/radiation`, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
 
 See section below on adding a radiation function to your .bash_profile if you want to make usage significantly easier. 
 
@@ -33,11 +33,11 @@ Radiation uses ERB for templating. If you don't know ERB, you can probably figur
 
 ### How Do I Write CSS or JavaScript for my Blog?
 
-The key here is that your template will look for files relative to `public_html/blog.html`. So if you put `<link rel="stylesheet" type="text/css" href="css/styles.css">` in the `blog.html.erb` template, it will look for a file at `public_html/css/styles.css`. Same thing goes for JavaScript-- I'd recommend createing a `js` directory folder at `public_html/js/` and then putting `<script src="js/app.js"></script>` in the head of your `blog.html.erb` template. 
+The key here is that your template will look for files relative to `~/public_html/blog.html`. So if you put `<link rel="stylesheet" type="text/css" href="css/styles.css">` in the `blog.html.erb` template, it will look for a file at `~/public_html/css/styles.css`. Same thing goes for JavaScript-- I'd recommend creating a `js` directory folder at `~/public_html/js/` and then putting `<script src="js/app.js"></script>` in the head of your `blog.html.erb` template. 
 
 ### Changing Defaults 
 
-If you don't want the Radiation-compiled blog to be located at `public_html/blog.html`, just change it in the Radiation file: `radiation/lib/site_generator.rb` in the following line: 
+If you don't want the Radiation-compiled blog to be located at `public_html/blog.html`, just change it in the Radiation file: `~/radiation/lib/blog.rb` in the following line: 
 
 ```
 File.open("../public_html/blog.html", "w") do |f|
