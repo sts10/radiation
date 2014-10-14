@@ -21,48 +21,74 @@ elsif ARGV[0] == "setup"
   puts "See ReadMe for more information. We strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
   
 else
+  if File.exist?('../posts') && File.exist?('../radiation_templates') && File.exist?('../radiation_templates/blog.html.erb')
 
-  puts ""
-  puts "   ☢                 ☢   "
-  puts "  ☢☢☢               ☢☢☢  "
-  puts " ☢☢☢☢☢             ☢☢☢☢☢ "
-  puts "☢☢☢☢☢☢☢ RADIATION ☢☢☢☢☢☢☢"
-  puts "           ☢☢☢           "
-  puts "          ☢☢☢☢☢          "
-  puts "         ☢☢☢☢☢☢☢         "
-  puts "        ☢☢☢☢☢☢☢☢☢        "
-
-
-  choice = ''
-  while choice != 'q'
     puts ""
-    puts "Main Menu"
-    puts ""
-    puts "What do you want to do?"
-    puts "p - publish your blog"
-    puts "n - create new blog post"
-    puts "t - edit my blog template"
-    puts "q - quit"
-    
-    choice = gets.chomp.strip.downcase
+    puts "   ☢                 ☢   "
+    puts "  ☢☢☢               ☢☢☢  "
+    puts " ☢☢☢☢☢             ☢☢☢☢☢ "
+    puts "☢☢☢☢☢☢☢ RADIATION ☢☢☢☢☢☢☢"
+    puts "           ☢☢☢           "
+    puts "          ☢☢☢☢☢          "
+    puts "         ☢☢☢☢☢☢☢         "
+    puts "        ☢☢☢☢☢☢☢☢☢        "
 
-    if choice == "p"
-      this_blog = Blog.new
-      this_blog.publish!('../posts/')
 
-    elsif choice == 'n'
-      puts "Please enter a file name for your new post (Example: My First Post). (Enter 'q' to return to main menu.)"
-      new_post_name = gets.chomp.strip.downcase
+    choice = ''
+    while choice != 'q'
+      puts ""
+      puts "Main Menu"
+      puts ""
+      puts "What do you want to do?"
+      puts "p - publish your blog"
+      puts "n - create new blog post"
+      puts "t - edit my blog template"
+      puts "q - quit"
       
-      if new_post_name != 'q'
-        new_post = Post.new
-        new_post.create(new_post_name)
+      choice = gets.chomp.strip.downcase
 
-        new_post.edit
+      if choice == "p"
+        this_blog = Blog.new
+        this_blog.publish!('../posts/')
+
+      elsif choice == 'n'
+        puts "Please enter a file name for your new post (Example: My First Post). (Enter 'q' to return to main menu.)"
+        new_post_name = gets.chomp.strip.downcase
+        
+        if new_post_name != 'q'
+          new_post = Post.new
+          new_post.create(new_post_name)
+
+          new_post.edit
+        end
+      elsif choice == 't'
+        puts "Opening your blog template now"
+        system "vim ../radiation_templates/blog.html.erb"
       end
-    elsif choice == 't'
-      puts "Opening your blog template now"
-      system "vim ../radiation_templates/blog.html.erb"
+    end # ends while loop
+  else
+    # not setup
+    puts "It looks like you haven't setup Radiation yet."
+    puts "Would you like to setup Radiation now? (y/n)"
+
+    confirm = gets.chomp.downcase.strip
+
+    if confirm == 'y'
+
+      system "mkdir ../posts"
+      system "mkdir ../radiation_templates"
+      system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
+
+      puts ""
+      puts ""
+      puts "Radiation is now installed!"
+      puts ""
+      puts ""
+
+      puts "You may want to go to ~/radiation_templates/blog.html.erb to fill in your personal information."
+      puts "See ReadMe for more information. We strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
+    else 
+      puts "OK maybe later"
     end
   end
 
