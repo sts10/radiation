@@ -7,7 +7,12 @@ Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.c
 ### Installation
 
 1. Clone this directory into `~/` by pasting the following into your terminal: 
-`git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation` then hit enter.
+
+```
+git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
+```
+
+then hit enter.
 
 2. Now paste or type this into your terminal `ruby bin/runner.rb setup` and hit enter.
 
