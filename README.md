@@ -6,20 +6,26 @@ Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.c
 
 ### Installation
 
-1. Clone this directory into `~/` (so it's next to your public_html directory). To do this, run `cd ~` and then `git clone https://github.com/sts10/radiation.git`
-2. `cd` into the radiation directory by running `cd ~/radiation`
-3. Run `ruby bin/runner.rb setup` 
-4. You should be good to go! See the usage section below for how to use Radiation. 
+1. Clone this directory into `~/` by pasting the following into your terminal: 
+`git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation` then hit enter.
 
-Note: By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
+2. Now paste or type this into your terminal `ruby bin/runner.rb setup` and hit enter.
+
+You should be good to go! See the usage section below for how to use Radiation. 
+
+**Note:** By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
+
+Also, Radiation stores your blog posts in `~/posts`, so if you have a directory at `~/posts` make sure you either remove it or empty it before installing Radiation.
 
 ### Usage 
 
-As of Radiation v 0.0.7, you're still going to need to `cd` into the `radiation` directory to use Radiation. To do this, you can just run `cd ~/radiation`.
+As of Radiation v 0.0.7, running Radaition is still a little clunky.
 
-Once you're in `~/radiation`, simple run `ruby bin/runner.rb` to run Radiation. You'll be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
+From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
-See section below on adding a radiation function to your .bash_profile if you want to make usage significantly easier. 
+You'll then be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
+
+See section below on adding a radiation function to your `.bash_profile` if you want to make usage significantly easier. 
 
 To edit posts just go into `~/posts` and edit the post you want to edit in whatever text editor you like. Then call Radiation and run the publish command from the menu. (Note the bugs section below though.)
 
