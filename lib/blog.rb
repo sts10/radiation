@@ -77,5 +77,40 @@ class Blog
 
   end
   
+  def present_edit_menu(directory_location_of_posts)
+
+    html_files = directory_location_of_posts + '*.html'
+
+    # sort html files in reverse chron order by creation time
+    html_files_sorted = Dir[html_files].sort_by{ |f| 
+      File.basename(f)
+    }.reverse
+
+    post_id = 1
+    
+    puts "Enter the number of the post you wish to edit:"
+
+
+    Dir.glob(html_files_sorted) do |file_location|
+
+      puts "#{post_id} - #{file_location}"
+
+      post_id = post_id + 1
+    end
+
+    number_to_edit = gets.chomp
+
+    file_name_to_edit = html_files_sorted[number_to_edit.to_i - 1]
+
+    system "vim #{file_name_to_edit}"
+
+
+    posts_array.each do |post|
+      puts "Re-publishing #{post.file_location}"
+    end
+
+    return posts_array
+
+  end
 
 end

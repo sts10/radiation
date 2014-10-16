@@ -47,6 +47,7 @@ else
       puts "What do you want to do?"
       puts "p - publish your blog"
       puts "n - create new blog post"
+      puts "e - edit a published post"
       puts "t - edit my blog template"
       puts "q - quit"
       
@@ -74,6 +75,10 @@ else
       elsif choice == 't'
         puts "Opening your blog template now"
         system "vim ../radiation_templates/blog.html.erb"
+      elsif choice == 'e'
+        this_blog = Blog.new 
+        this_blog.present_edit_menu('../posts/')
+      
       end
     end # ends while loop
   else
