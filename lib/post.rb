@@ -23,12 +23,12 @@ class Post
     @file_name = current_time.strftime "%Y-%m-%eT%H+%M+%S-" + new_post_name
     
     # create a blank file  
-    new_post = File.new("../posts/#{@file_name}", 'w')
+    new_post = File.new("../radiation_posts/#{@file_name}", 'w')
     new_post.close
   end
 
   def edit
-    system "vim ../posts/#{@file_name}"
+    system "vim ../radiation_posts/#{@file_name}"
   end
 
   def get_datetime_object(file_location)

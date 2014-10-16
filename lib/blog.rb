@@ -21,7 +21,7 @@ class Blog
       this_post = Post.new
       this_post.file_location = file_location
 
-      this_post.permalink = file_location[9..-6]
+      this_post.permalink = file_location[19..-6]
 
       # the following two lines could probably be refactored
       this_post.creation_datetime_obj = this_post.get_datetime_object(file_location)

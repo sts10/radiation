@@ -3,11 +3,11 @@ require_relative '../config/environment'
  
 if ARGV[0] == "publish"
   this_blog = Blog.new
-  this_blog.publish!('../posts/')
+  this_blog.publish!('../radiation_posts/')
 elsif ARGV[0] == "setup"
   puts "OK, we'll create a posts folder and a templates folder in the right place for you."
 
-  system "mkdir ../posts"
+  system "mkdir ../radiation_posts"
   if File.exist?('../radiation_templates/blog.html.erb')
     puts "It looks like you already have a template in place. I'll leave it alone."
   else
@@ -26,7 +26,7 @@ elsif ARGV[0] == "setup"
   puts "See ReadMe for more information. We strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
   
 else
-  if File.exist?('../posts') && File.exist?('../radiation_templates') && File.exist?('../radiation_templates/blog.html.erb')
+  if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?('../radiation_templates/blog.html.erb')
 
     puts ""
     puts "   ☢                 ☢   "
@@ -55,7 +55,7 @@ else
 
       if choice == "p"
         this_blog = Blog.new
-        this_blog.publish!('../posts/')
+        this_blog.publish!('../radiation_posts/')
 
       elsif choice == 'n'
         puts "Please enter a file name for your new post (Example: My First Post). (Enter 'q' to return to main menu.)"
@@ -77,7 +77,7 @@ else
         system "vim ../radiation_templates/blog.html.erb"
       elsif choice == 'e'
         this_blog = Blog.new 
-        this_blog.present_edit_menu('../posts/')
+        this_blog.present_edit_menu('../radiation_posts/')
       
       end
     end # ends while loop
@@ -90,7 +90,7 @@ else
 
     if confirm == 'y'
 
-      system "mkdir ../posts"
+      system "mkdir ../radiation_posts"
       
       if File.exist?('../radiation_templates/blog.html.erb')
         puts "It looks like you already have a template in place. I'll leave it alone."
