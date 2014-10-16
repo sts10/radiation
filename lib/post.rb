@@ -1,6 +1,6 @@
 
 class Post
-  attr_accessor :file_location, :creation_datetime_obj, :formatted_time, :content
+  attr_accessor :file_location, :permalink, :creation_datetime_obj, :formatted_time, :content
 
   def create(new_post_name)
 
