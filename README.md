@@ -76,7 +76,9 @@ function radiation {
 }
 ```
 
-Save your `.bash_profile`. MNow when you're back in your terminal, run `source ~/.bash_profile` to refresh your bash profile.
+To open your `.bash_profile`, run `vim ~/.bash_profile`. Enter the function above. 
+
+Save your `.bash_profile` with `:wq` in Vim's command mode. Now when you're back in your terminal, run `source ~/.bash_profile` to refresh your bash profile.
 
 Now you should be able to enter simply the word `radiation` from any directory and Radiation will run. When you quit Radiation you'll be returned to the directory you launched Radiation from.
 
@@ -135,7 +137,9 @@ Miraculously this worked in irb and it works in program currently, but it seems 
 
 #### Installation Process
 
-I really don't like how I currently require new users to paste that clunk bash function into their `.bash_profile`. I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. Would love any hints/ideas on how to do that. 
+I really don't like how I currently require new users to paste that clunky bash function into their `.bash_profile`. 
+
+I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 #### Permalinks
 
@@ -151,7 +155,7 @@ I'd love to have the blog ERB template to make the dates of the posts permalinks
 2. a `~/radiation_templates` directory
 3. and a file `~/radiation_templates/blog.html.erb`
 
-If the user doesn't, it assumes the user is not setup. It then asks the user y/n if he or she would like to run the setup now. 
+If the user doesn't, it assumes the user is not setup. It then asks the user y/n if he or she would like to run the setup now. Also, the setup script does not replace you blog.html.erb template if one already exists in `~/radiation_templates`.
 
 #### What's New in v 0.0.6 
 
@@ -182,6 +186,7 @@ I greatly simplified model structure. Where there was post_compiler and site_gen
 
 # Hopefully Coming Soon
 
+- Smoother installation and usage processes. 
 - Permalinks for each post.
 - Pagination
 - Support for multiple text editors
