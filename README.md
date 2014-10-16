@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.0.7 ☢
+# ☢ Radiation v 0.0.8 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/blog.html). 
 
@@ -24,7 +24,7 @@ Also, Radiation stores your blog posts in `~/posts`, so if you have a directory 
 
 ### Usage 
 
-As of Radiation v 0.0.7, running Radaition is still a little clunky.
+As of Radiation v 0.0.8, running Radaition is still a little clunky.
 
 From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
@@ -114,7 +114,7 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 ### I Know Some Ruby/ERB/Shell. How Can I Help? 
 
-Awesome! Radiation, as of v 0.0.7 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
+Awesome! Radiation, as of v 0.0.8 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
 
 **`bin/runner.rb` is a great place to start if you're new to the project.**
 
@@ -147,6 +147,10 @@ I'd love to have the blog ERB template to make the dates of the posts permalinks
 
 
 # Changelog
+
+#### What's New in v 0.0.8
+
+Added the ability to include permalinks. See the new sample blog template for implementation. 
 
 #### What's New in v 0.0.7
 
