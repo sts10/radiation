@@ -152,6 +152,8 @@ I'd love to have the blog ERB template to make the dates of the posts permalinks
 
 Added the ability to include permalinks. See the new sample blog template for implementation. 
 
+Also adds ability to edit ('e') a published post from the main menu.
+
 #### What's New in v 0.0.7
 
 `runner.rb` now only presents the main menu if it verifies that the user has:
