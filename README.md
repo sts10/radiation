@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.0.8 ☢
+# ☢ Radiation v 0.1.0 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/blog.html). 
 
@@ -20,11 +20,9 @@ You should be good to go! See the usage section below for how to use Radiation.
 
 _Note:_ By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
 
-Also, Radiation stores your blog posts in `~/posts`, so if you have a directory at `~/posts` make sure you either remove it or empty it before installing Radiation.
-
 ### Usage 
 
-As of Radiation v 0.0.8, running Radaition is still a little clunky.
+As of Radiation v 0.1.0, running Radaition is still a little clunky.
 
 From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
@@ -32,11 +30,15 @@ You'll then be greeted by a menu. Note that Radiation is currently hard-coded to
 
 See section below on adding a radiation function to your `.bash_profile` if you want to make usage significantly easier. 
 
-To edit posts just go into `~/posts` and edit the post you want to edit in whatever text editor you like. Then call Radiation and run the publish command from the menu. (Note the bugs section below though.)
+To edit posts you can either use thje 'e' option in the menu. 
+
+Or you can go into `~/radiation_posts` and edit the post you want to edit in whatever text editor you like. 
+
+When you're done editing, call Radiation and run the publish command from the menu. (Note the bugs section below though.)
 
 ### Where do my Posts Get Saved to? 
 
-They're always save and sound in `~/posts`. You can edit and/or delete them there. Afterward you're done editing or deleting posts, just run Radiation's publish command to publish those changes. 
+They're always save and sound in `~/radiation_posts`. You can edit and/or delete them there. Afterward you're done editing or deleting posts, just run Radiation's publish command to publish those changes. 
 
 Note: If you use git feel free to run `git init` in the posts directory. 
 
@@ -94,10 +96,10 @@ If you use the setup command described in the installation instructions above, R
 ~/public_html
 ~/radiation
 ~/radiation_templates
-~/posts
+~/radiation_posts
 ```
 
-The reason that both `posts` and `radiation_templates` sit outside of the `radiation` directory is so that when users `git pull` a newer version of Radiation it doesn't overwrite their posts or their personalized `blog.html.erb` template.
+The reason that both `/radiation_posts` and `/radiation_templates` sit outside of the `/radiation` directory is so that when users `git pull` a newer version of Radiation it doesn't overwrite their posts or their personalized `blog.html.erb` template.
 
 
 ### Does Radiation Work On Other Clubs like Tilde Club? 
@@ -114,7 +116,7 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 ### I Know Some Ruby/ERB/Shell. How Can I Help? 
 
-Awesome! Radiation, as of v 0.0.8 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
+Awesome! Radiation, as of v 0.1.0 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
 
 **`bin/runner.rb` is a great place to start if you're new to the project.**
 
@@ -124,7 +126,7 @@ Awesome! Radiation, as of v 0.0.8 at least, consists of 2 Ruby classes (or model
 
 If you're good with Ruby and RegEx I need help with the `get_datetime_object` method in the `Post` class (`post.rb`). That method is supposed to take the filename string that is created in the `create` method above it and convert it into a DateTime object. Look at the corresponding code in the `compile` method of the Blog class (`blog.rb`) to get a better idea of what's going on. 
 
-Currently I'm just shoving the full file_location, which a string that looks like `"../posts/2014-10-13T20+02+32-another-post.html"`, gsubbing the plus signs for colons, and then passing that beast into `DateTime.parse`. 
+Currently I'm just shoving the full file_location, which a string that looks like `"../radiation_posts/2014-10-13T20+02+32-another-post.html"`, gsubbing the plus signs for colons, and then passing that beast into `DateTime.parse`. 
 
 ```ruby
 def get_datetime_object(file_location)
@@ -133,7 +135,7 @@ def get_datetime_object(file_location)
 end
 ```
 
-Miraculously this worked in irb and it works in program currently, but it seems shaky to me. I'd rather have some reg ex magic in that method to extract `"2014-10-13T20+02+32"` from `"../posts/2014-10-13T20+02+32-another-post.html"`. Does that make sense? 
+Miraculously this worked in irb and it works in program currently, but it seems shaky to me. I'd rather have some reg ex magic in that method to extract `"2014-10-13T20+02+32"` from `"../radiation_posts/2014-10-13T20+02+32-another-post.html"`. Does that make sense? 
 
 #### Installation Process
 
@@ -141,16 +143,15 @@ I really don't like how I currently require new users to paste that clunky bash 
 
 I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
-#### Permalinks
-
-I'd love to have the blog ERB template to make the dates of the posts permalinks. A sample of the blog ERB template is in the `sample_templates` directory (look in `runner.rb` to see how the install command works). I don't know how I want to generate the permalink string-- maybe using the full post filename? Open to ideas/discussion in GitHub Issues.  
-
-
 # Changelog
+
+#### What's New in v 0.1.0
+
+Now saves new posts and pulls posts to publish from `/radiation_posts` rather than `/posts`. I made this change for name-spacing reasons-- in case users already have a directory at `~/posts`, and for symmetry of the naming structure. 
 
 #### What's New in v 0.0.8
 
-Added the ability to include permalinks. See the new sample blog template for implementation. 
+Added the ability to include permalinks. See the new sample blog template for implementation.
 
 Also adds ability to edit ('e') a published post from the main menu.
 
