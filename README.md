@@ -6,7 +6,7 @@ Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.c
 
 ### Installation
 
-1. Clone this directory into `~/` by pasting the following into your terminal: 
+**Step 1.** Clone this directory into `~/` by pasting the following into your terminal: 
 
 ```
 git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
@@ -14,11 +14,11 @@ git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
 
 then hit enter.
 
-2. Now paste or type this into your terminal `ruby bin/runner.rb setup` and hit enter.
+**Step 2.** Now paste or type this into your terminal `ruby bin/runner.rb setup` and hit enter.
 
 You should be good to go! See the usage section below for how to use Radiation. 
 
-**Note:** By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
+_Note:_ By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
 
 Also, Radiation stores your blog posts in `~/posts`, so if you have a directory at `~/posts` make sure you either remove it or empty it before installing Radiation.
 
