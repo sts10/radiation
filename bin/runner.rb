@@ -8,8 +8,13 @@ elsif ARGV[0] == "setup"
   puts "OK, we'll create a posts folder and a templates folder in the right place for you."
 
   system "mkdir ../posts"
-  system "mkdir ../radiation_templates"
-  system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
+  if File.exist?('../radiation_templates/blog.html.erb')
+    puts "It looks like you already have a template in place. I'll leave it alone."
+  else
+    puts "Creating radiation_templates folder and putting a sample template in there with the proper file name."
+    system "mkdir ../radiation_templates"
+    system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
+  end
 
   puts ""
   puts ""
@@ -81,8 +86,14 @@ else
     if confirm == 'y'
 
       system "mkdir ../posts"
-      system "mkdir ../radiation_templates"
-      system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
+      
+      if File.exist?('../radiation_templates/blog.html.erb')
+        puts "It looks like you already have a template in place. I'll leave it alone."
+      else
+        puts "Creating radiation_templates folder and putting a sample template in there with the proper file name."
+        system "mkdir ../radiation_templates"
+        system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
+      end
 
       puts ""
       puts ""
