@@ -15,7 +15,9 @@
         <% @posts_array.each do |post| %>
             <div class="blog_post">   
               
-                <div class="date"><%= post.formatted_time %></div>
+                <div class="date">
+                  <a href="#<%= post.permalink %>" name="<%= post.permalink %>"><%= post.formatted_time %></a>
+                  </div>
                 <%= post.content %>
         
             </div>
