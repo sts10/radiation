@@ -86,31 +86,19 @@ class Blog
       File.basename(f)
     }.reverse
 
-    post_id = 1
-    
+    post_id = 1    
     puts "Enter the number of the post you wish to edit:"
 
-
     Dir.glob(html_files_sorted) do |file_location|
-
       puts "#{post_id} - #{file_location}"
-
       post_id = post_id + 1
     end
 
-    number_to_edit = gets.chomp
+    number_to_edit = gets.chomp.strip
 
     file_name_to_edit = html_files_sorted[number_to_edit.to_i - 1]
 
     system "vim #{file_name_to_edit}"
-
-
-    posts_array.each do |post|
-      puts "Re-publishing #{post.file_location}"
-    end
-
-    return posts_array
-
   end
 
 end
