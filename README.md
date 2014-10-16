@@ -65,7 +65,9 @@ function radiation {
 }
 ```
 
-Then you should be able to enter simply the word `radiation` from any directory and Radiation will run. When you quit Radiation you'll be returned to the directory you launched Radiation from.
+Save your `.bash_profile`. MNow when you're back in your terminal, run `source ~/.bash_profile` to refresh your bash profile.
+
+Now you should be able to enter simply the word `radiation` from any directory and Radiation will run. When you quit Radiation you'll be returned to the directory you launched Radiation from.
 
 ### Git Ignore Suggestion
 
