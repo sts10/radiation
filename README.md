@@ -17,6 +17,7 @@ then hit enter.
 **Step 2:** Now paste or type this into your terminal `ruby bin/runner.rb setup` and hit enter.
 
 You should be good to go! See the usage section below for how to use Radiation. 
+
 _Note:_ By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
 
 _Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.0, you'll need to move your radiation posts from `~/posts` to `~/radiation_posts`. To do this, run `mv ~/posts ~/radiation_posts`.
