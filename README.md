@@ -38,9 +38,9 @@ When you're done editing, call Radiation and run the publish command from the me
 
 ### Where do my Posts Get Saved to? 
 
-They're always save and sound in `~/radiation_posts`. You can edit and/or delete them there. Afterward you're done editing or deleting posts, just run Radiation's publish command to publish those changes. 
+They're always safe and sound in `~/radiation_posts`. You can edit and/or delete them there as you would any `.html` file. After you're done editing or deleting posts, just run Radiation's publish command to publish those changes. 
 
-Note: If you use git feel free to run `git init` in the posts directory. 
+Note: If you use Git feel free to run `git init` in the posts directory. 
 
 ### Editing the Blog Template 
 
@@ -194,7 +194,7 @@ I greatly simplified model structure. Where there was post_compiler and site_gen
 # Hopefully Coming Soon
 
 - Smoother installation and usage processes. 
-- Permalinks for each post.
+- Individual pages for each post.
 - Pagination
 - Support for multiple text editors
 - Easier way to edit existing posts
