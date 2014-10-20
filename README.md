@@ -30,7 +30,7 @@ From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
 You'll then be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
 
-**See section below on adding a radiation function to your `.bash_profile` if you want to make usage significantly easier. **
+**See section below on adding a radiation function to your `.bash_profile` if you want to make usage significantly easier.**
 
 To edit posts you can either use the 'e' option in the menu. Alternatively, you can go into `~/radiation_posts` and edit the post you want to edit in whatever text editor you like. 
 
