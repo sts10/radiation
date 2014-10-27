@@ -41,13 +41,13 @@ Here's a quick example:
 <img src="URL">
 ```
 
-Once you've saved your post, you then have to use the Radiation menu to "publish" you blog. Your new post should then be live.
+Once you've saved your post, you then have to use the Radiation menu to "publish" your blog. Your new post should then be live.
 
 Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
 
-**See section below on adding a radiation function to your `.bash_profile` if you want to make usage significantly easier.**
+**See section below on adding a `radiation` function to your `.bash_profile` if you want to make usage significantly easier.**
 
-To edit posts you can either use the 'e' option in the menu. Alternatively, you can go into `~/radiation_posts` and edit the post you want to edit in whatever text editor you like. 
+To edit posts you can use the 'e' option in the menu. Alternatively, you can go into `~/radiation_posts` and edit the post you want to edit in whatever text editor you like. 
 
 When you're done editing, call Radiation and run the publish command from the menu. (Note the bugs section below though.)
 
@@ -187,7 +187,7 @@ Users can now use spaces, questions, marks, uppercase letters, etc and, most imp
 
 Also, users can now abort the creation of new posts by entering 'q' for the name of a new post.
 
-#### v 0.0.5
+#### What's New in v 0.0.5
 
 Significant changes. 
 
@@ -195,21 +195,21 @@ Significant changes.
 
 2. Partially as a result of this change, I decided to write a script for new users to setup Radiation. See the installation section above for more information. 
 
-#### v 0.0.4
+#### What's New in v 0.0.4
 To solve the problem of not being able to store post creation times, I decided to store that information in the names of new posts when they are created. See `Post#create` for how that works. 
 
 I then added two one-line methods to the `Post` model whose job it is to exact a datetime object from this filename, and a nicely-formatted version for printing to the blog.html. Both are called in the `Blog#compile`. Definitely could stand some refactoring, but I wrote how I saw it in my mind. 
 
 Since newly-created posts now get their creation time put into the filename, in a way this version is a **breaking change** for older users. You'll need to either add the timestamp to your post filenames by hand, or re-create them using Radiate. Sorry about that. 
 
-#### v 0.0.3
+#### What's New in v 0.0.3
 I greatly simplified model structure. Where there was post_compiler and site_generator, etc. there are now only two models: `post` and `blog`. `blog`, a new model, has a simple method called `publish!` that re-writes the `blog.html` file from the posts directory, using the `blog.html.erb` template.
 
 
 # Hopefully Coming Soon
 
 - Smoother installation and usage processes. 
-- Individual pages for each post.
+- Individual HTML pages for each post.
 - Pagination
 - Support for multiple text editors
 - Easier way to edit existing posts
