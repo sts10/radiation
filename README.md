@@ -28,7 +28,22 @@ As of Radiation v 0.1.0, running Radiation is still a little clunky.
 
 From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
-You'll then be greeted by a menu. Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
+You'll then be greeted by the main Radiation menu. 
+
+Here is where you can create a new post. You must write your new blog post **in HTML**. That means that each paragraphs should be wrapped in p tags or at least have < br >s between them. You'll also need to put a title for your post in the post. I'd recommend using an h2 tag.
+
+Here's a quick example: 
+
+```
+<h2>Here's My Blog Post Title</h2>
+<p>Here's the first paragraph of my new blog post</p>
+<p>Here's another paragraph.</p>
+<img src="URL">
+```
+
+Once you've saved your post, you then have to use the Radiation menu to "publish" you blog. Your new post should then be live.
+
+Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
 
 **See section below on adding a radiation function to your `.bash_profile` if you want to make usage significantly easier.**
 
