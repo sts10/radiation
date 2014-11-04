@@ -22,6 +22,8 @@ class Post
     
     @file_name = current_time.strftime "%Y-%m-%eT%H+%M+%S-" + new_post_name
     
+    @file_name = @file_name.gsub(' ', '0')
+
     # create a blank file  
     new_post = File.new("../radiation_posts/#{@file_name}", 'w')
     new_post.close
