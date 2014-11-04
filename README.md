@@ -4,7 +4,7 @@ Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.c
 
 ### SPECIAL NOTE ON V 0.1.0
 
-If you were running v 0.1.0 and tried to make a new post in the last5 3 days it probably did NOT work for you. Please see th CHANGELOG below and upgrade to v 0.1.1. 
+If you were running v 0.1.0 and tried to make a new post in the last 3 days it probably did NOT work for you. Please see th CHANGELOG below and upgrade to v 0.1.1. 
 
 
 # Getting Started
@@ -167,7 +167,7 @@ I know there's a better way to have users install Radiation--something with the 
 
 #### What's New in v 0.1.1
 
-Emergency bug fix for new posts created in first 9 days of a month. The day of the manth was " 3" rather than "03" and the space was finding its way into the .html name, which caused a lot of problems. v 0.1.1 applies a quick `gsub` fix. 
+Emergency bug fix for new posts created in first 9 days of a month. The day of the month was " 3" rather than "03" and the space was finding its way into the .html name, which caused a lot of problems. v 0.1.1 applies a fix where I use `%d` instead of `%e` in `post.rb`. 
 
 #### What's New in v 0.1.0
 
