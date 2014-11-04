@@ -1,6 +1,11 @@
-# ☢ Radiation v 0.1.0 ☢
+# ☢ Radiation v 0.1.1 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
+
+### SPECIAL NOTE ON V 0.1.0
+
+If you were running v 0.1.0 and tried to make a new post in the last5 3 days it probably did NOT work for you. Please see th CHANGELOG below and upgrade to v 0.1.1. 
+
 
 # Getting Started
 
@@ -20,11 +25,11 @@ You should be good to go! See the usage section below for how to use Radiation.
 
 _Note:_ By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
 
-_Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.0, you'll need to move your radiation posts from `~/posts` to `~/radiation_posts`. To do this, run `mv ~/posts ~/radiation_posts`.
+_Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.0 or higher, you'll need to move your radiation posts from `~/posts` to `~/radiation_posts`. To do this, run `mv ~/posts ~/radiation_posts`.
 
 ### Usage 
 
-As of Radiation v 0.1.0, running Radiation is still a little clunky.
+As of Radiation v 0.1.1, running Radiation is still a little clunky.
 
 From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
@@ -159,6 +164,10 @@ I really don't like how I currently require new users to paste that clunky bash 
 I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 # Changelog
+
+#### What's New in v 0.1.1
+
+Emergency bug fix for new posts created in first 9 days of a month. The day of the manth was " 3" rather than "03" and the space was finding its way into the .html name, which caused a lot of problems. v 0.1.1 applies a quick `gsub` fix. 
 
 #### What's New in v 0.1.0
 
