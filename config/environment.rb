@@ -1,7 +1,6 @@
 require 'erb'
 require 'date'
 require 'tzinfo'
-require 'active_support'
 
 require_relative '../user_settings.rb'
 require_relative '../lib/time'
