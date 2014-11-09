@@ -8,7 +8,14 @@ If you've upgrading Radiation from version 0.1.2 or lower I would recommend inst
 
 This doesn't mean you'll lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit out the `/radiation` directory where the application lives. 
 
-To start fresh, run `rm -rf ~/radiation`. Then follow the installation instructions below. 
+To do this and upgrade to v 0.2.0, run `rm -rf ~/radiation`. Now run: 
+
+```
+git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
+```
+
+and then run `ruby bin/runner.rb install`
+
 
 # Getting Started
 
