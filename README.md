@@ -1,11 +1,14 @@
-# ☢ Radiation v 0.1.1 ☢
+# ☢ Radiation v 0.2.0 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
-### SPECIAL NOTE ON V 0.1.0
+### SPECIAL NOTE ON V 0.2.0
 
-If you were running v 0.1.0 and tried to make a new post in the last 3 days it probably did NOT work for you. Please see th CHANGELOG below and upgrade to v 0.1.1. 
+If you've upgrading Radiation from version 0.1.2 or lower I would recommend installing v 0.2.0 from scratch. v 0.2.0 has handles user settings much more cleanly and offers basic time zone support, however these changes were substantially enough that I recommend you start from scratch. 
 
+This doesn't mean you'll lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit out the `/radiation` directory where the application lives. 
+
+To start fresh, run `rm -rf ~/radiation`. Then follow the installation instructions below. 
 
 # Getting Started
 
@@ -19,7 +22,7 @@ git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
 
 then hit enter.
 
-**Step 2:** Now paste or type this into your terminal `ruby bin/runner.rb setup` and hit enter.
+**Step 2:** You should be asked if you'd like to set up Radiation. Answer in the affirmative!
 
 You should be good to go! See the usage section below for how to use Radiation. 
 
@@ -29,13 +32,14 @@ _Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.
 
 ### Usage 
 
-As of Radiation v 0.1.1, running Radiation is still a little clunky.
+As of Radiation v 0.2.0, running Radiation is still a little clunky.
 
 From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
 You'll then be greeted by the main Radiation menu. 
 
-Here is where you can create a new post. You must write your new blog post **in HTML**. That means that each paragraphs should be wrapped in p tags or at least have < br >s between them. You'll also need to put a title for your post in the post. I'd recommend using an h2 tag.
+From the main menu, you can choose optin `n` to create a new post. 
+Currently you must write your new blog post **in HTML**. That means that each paragraphs should be wrapped in p tags or at least have < br >s between them. You'll also need to put a title for your post in the post. I'd recommend using an h2 tag.
 
 Here's a quick example: 
 
@@ -48,13 +52,17 @@ Here's a quick example:
 
 Once you've saved your post, you then have to use the Radiation menu to "publish" your blog. Your new post should then be live.
 
-Note that Radiation is currently hard-coded to open newly-created posts in Vim. 
-
 **See section below on adding a `radiation` function to your `.bash_profile` if you want to make usage significantly easier.**
 
 To edit posts you can use the 'e' option in the menu. Alternatively, you can go into `~/radiation_posts` and edit the post you want to edit in whatever text editor you like. 
 
 When you're done editing, call Radiation and run the publish command from the menu. (Note the bugs section below though.)
+
+### Editing User Settings
+
+In the main menu you'll see option `s` for editing user settings. Here you can do things like set your local timezone (by default set to New York), change the text editor you use (I think on totally nuclear boxes there' sonly `vim` or `nano`), and change what file your blog gets printed to (default is `public_html/blog.html`). 
+
+Just save this file and the new settings should be made immediately. 
 
 ### Where do my Posts Get Saved to? 
 
@@ -66,24 +74,15 @@ Note: If you use Git feel free to run `git init` in the posts directory.
 
 Radiation uses ERB for templating. If you don't know ERB, you can probably figure it out. Once you've setup Radiation, you can head on over to `~/radiation_templates/blog.html.erb` and take a look at the sample template. 
 
+You can change where Radiation finds its template in user settings (see above).
+
 ### How Do I Write CSS or JavaScript for my Blog?
 
 The key here is that your template will look for files relative to `~/public_html/blog.html`. So if you put `<link rel="stylesheet" type="text/css" href="css/styles.css">` in the `blog.html.erb` template, it will look for a file at `~/public_html/css/styles.css`. Same thing goes for JavaScript-- I'd recommend creating a `js` directory folder at `~/public_html/js/` and then putting `<script src="js/app.js"></script>` in the head of your `blog.html.erb` template. 
 
 ### Changing Defaults 
 
-If you don't want the Radiation-compiled blog to be located at `public_html/blog.html`, just change it in the Radiation file: `~/radiation/lib/blog.rb` in the following line: 
-
-```
-File.open("../public_html/blog.html", "w") do |f|
-```
-
-For example, if you wanted your totallynuclear.club homepage to be your blog, you'd change that line to:
-
-```
-File.open("../public_html/index.html", "w") do |f|
-```
-
+Just use the `s - edit my user settings` option from the main menu to change the defaults that are available to change. 
 
 ### Making Radiation Easier to Run by Editing Your Bash Profile. 
 
@@ -98,9 +97,11 @@ function radiation {
 }
 ```
 
-To open your `.bash_profile`, run `vim ~/.bash_profile`. Enter the function above. 
+To do this, first open your `.bash_profile` by running `vim ~/.bash_profile`. Now enter the function above. To do this you need need to first enter vim's "insert" mode by pressing `i`.
 
-Save your `.bash_profile` with `:wq` in Vim's command mode. Now when you're back in your terminal, run `source ~/.bash_profile` to refresh your bash profile.
+Once you've entered the function into your  bash_proifle, hit escape toe exit insert mode. Now save your `.bash_profile` with `:wq` in Vim's command mode. 
+
+Finally,  once you're back in your terminal, run `source ~/.bash_profile` to refresh your bash profile.
 
 Now you should be able to enter simply the word `radiation` from any directory and Radiation will run. When you quit Radiation you'll be returned to the directory you launched Radiation from.
 
@@ -164,6 +165,10 @@ I really don't like how I currently require new users to paste that clunky bash 
 I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 # Changelog
+
+#### What's New in v 0.2.0
+
+Time-zone support, thanks to a kernel of code [provided by ~erik himself](https://github.com/sts10/radiation/issues/3). Note that this 
 
 #### What's New in v 0.1.1
 
