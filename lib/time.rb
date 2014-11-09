@@ -3,7 +3,7 @@ class Time
    # tzstring e.g. 'America/Los_Angeles'
 
   def in_timezone(tzstring)
-    if tzstring == ''
+    if tzstring == '' || tzstring == nil
       e = Time.new
     else
       tz = TZInfo::Timezone.get tzstring
