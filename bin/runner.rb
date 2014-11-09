@@ -69,6 +69,8 @@ else
 
     if confirm == 'y'
 
+      system "gem install tzinfo"
+
       system "mkdir ../radiation_posts"
       
       if File.exist?($my_template_location)
