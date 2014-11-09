@@ -17,11 +17,12 @@ class Post
     new_post_name = new_post_name + ".html"
 
     # Add current time
-
-    current_time = Time.new
+    current_time = Time.new.in_timezone('America/New_York')
     
     @file_name = current_time.strftime "%Y-%m-%dT%H+%M+%S-" + new_post_name
     
+    # If you're getting date parsing error because of spaces turning up in your file names somehow
+    # try uncommenting the line below
     # @file_name = @file_name.gsub(' ', '0')
 
     # create a blank file  
