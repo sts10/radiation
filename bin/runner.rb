@@ -27,7 +27,9 @@ else
       puts "p - publish your blog"
       puts "n - create new blog post"
       puts "e - edit a published post"
+      puts "s - edit my user settings"
       puts "t - edit my blog template"
+      puts "h - get help"
       puts "q - quit"
       
       choice = gets.chomp.strip.downcase
@@ -57,7 +59,12 @@ else
       elsif choice == 'e'
         this_blog = Blog.new 
         this_blog.present_edit_menu('../radiation_posts/')
-      
+      elsif choice == 's'
+        puts "Opening your user settings now"
+        system "#{$my_text_editor_command} ../radiation/user_settings.rb"
+      elsif choice == 'h'
+        puts "For help, visit to https://github.com/sts10/radiation"
+        
       end
     end # ends while loop
   else
