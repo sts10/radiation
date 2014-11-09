@@ -8,3 +8,4 @@ require_relative '../lib/post'
 require_relative '../lib/blog'
 
 
+$my_timezone = 'America/New_York'
