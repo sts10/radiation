@@ -1,14 +1,14 @@
-# ☢ Radiation v 0.2.0 ☢
+# ☢ Radiation v 0.2.1 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
-### SPECIAL NOTE ON V 0.2.0
+### SPECIAL NOTE ON V 0.2.0 and Above
 
-If you've upgrading Radiation from version 0.1.2 or lower I would recommend installing v 0.2.0 from scratch. v 0.2.0 handles user settings much more cleanly and offers basic time zone support, however these changes were substantially enough that I recommend you start from scratch. 
+If you've upgrading Radiation from version 0.1.2 or lower I would recommend installing v 0.2.0 or above from scratch. v 0.2.0 and above handles user settings much more cleanly and offers basic time zone support, however these changes were substantially enough that I recommend you start from scratch. 
 
 This doesn't mean you'll lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit outside the `/radiation` directory where the application lives. 
 
-To do this and upgrade to v 0.2.0, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
+To do this and upgrade to v 0.2.1, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
 
 # Getting Started
 
@@ -34,7 +34,7 @@ _Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.
 
 ### Usage 
 
-As of Radiation v 0.2.0, running Radiation is still a little clunky.
+As of Radiation v 0.2.1, running Radiation is still a little clunky.
 
 From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
@@ -169,6 +169,10 @@ I really don't like how I currently require new users to paste that clunky bash 
 I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 # Changelog
+
+#### What's New in v 0.2.1
+
+As per [a comment by bobblyllama](https://github.com/sts10/radiation/issues/3#issuecomment-62322602), v 0.2.1 allows user to not specify a timezone in their user_settings.
 
 #### What's New in v 0.2.0
 
