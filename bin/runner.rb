@@ -76,7 +76,7 @@ else
       else
         puts "Creating radiation_templates folder and putting a sample template in there with the proper file name."
         system "mkdir ../radiation_templates"
-        system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
+        system "cp sample_templates/blog.html.erb #{$my_template_location}"
       end
 
       puts ""
