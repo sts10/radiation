@@ -32,7 +32,7 @@ class Post
   end
 
   def edit
-    system "vim ../radiation_posts/#{@file_name}"
+    system "#{$my_text_editor_command} ../radiation_posts/#{@file_name}"
   end
 
   def get_datetime_object(file_location)

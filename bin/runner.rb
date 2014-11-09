@@ -4,29 +4,8 @@ require_relative '../config/environment'
 if ARGV[0] == "publish"
   this_blog = Blog.new
   this_blog.publish!('../radiation_posts/')
-elsif ARGV[0] == "setup"
-  puts "OK, we'll create a posts folder and a templates folder in the right place for you."
-
-  system "mkdir ../radiation_posts"
-  if File.exist?('../radiation_templates/blog.html.erb')
-    puts "It looks like you already have a template in place. I'll leave it alone."
-  else
-    puts "Creating radiation_templates folder and putting a sample template in there with the proper file name."
-    system "mkdir ../radiation_templates"
-    system "cp sample_templates/blog.html.erb ../radiation_templates/blog.html.erb"
-  end
-
-  puts ""
-  puts ""
-  puts "Radiation is now installed!"
-  puts ""
-  puts ""
-
-  puts "You may want to go to ~/radiation_templates/blog.html.erb to fill in your personal information."
-  puts "See ReadMe for more information. We strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
-  
 else
-  if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?('../radiation_templates/blog.html.erb')
+  if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?($my_template_location)
 
     puts ""
     puts "   ☢                 ☢   "
@@ -74,7 +53,7 @@ else
         end
       elsif choice == 't'
         puts "Opening your blog template now"
-        system "vim ../radiation_templates/blog.html.erb"
+        system "#{$my_text_editor_command} #{$my_template_location}"
       elsif choice == 'e'
         this_blog = Blog.new 
         this_blog.present_edit_menu('../radiation_posts/')
@@ -92,7 +71,7 @@ else
 
       system "mkdir ../radiation_posts"
       
-      if File.exist?('../radiation_templates/blog.html.erb')
+      if File.exist?($my_template_location)
         puts "It looks like you already have a template in place. I'll leave it alone."
       else
         puts "Creating radiation_templates folder and putting a sample template in there with the proper file name."

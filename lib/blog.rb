@@ -54,13 +54,13 @@ class Blog
     @posts_array = posts_array
 
     puts "Creating new blog.html..."
-    template_doc= File.open("../radiation_templates/blog.html.erb", "r")
+    template_doc= File.open($my_template_location, "r")
 
     template = ERB.new(template_doc.read)
     
-    File.open("../public_html/blog.html", "w") do |f|
+    File.open($my_blog_location, "w") do |f|
         f.write(
-          template.result(binding) # result is an ERB method. bidning means we're passing all local variables to the template. 
+          template.result(binding) # result is an ERB method. `binding` here means we're passing all local variables to the template. 
         )
       f.close
     end
@@ -98,7 +98,7 @@ class Blog
 
     file_name_to_edit = html_files_sorted[number_to_edit.to_i - 1]
 
-    system "vim #{file_name_to_edit}"
+    system "#{$my_text_editor_command} #{file_name_to_edit}"
   end
 
 end
