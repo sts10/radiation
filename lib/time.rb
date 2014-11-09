@@ -1,5 +1,5 @@
 class Time
-
+  require 'tzinfo'
    # tzstring e.g. 'America/Los_Angeles'
 
    def in_timezone(tzstring)
