@@ -176,7 +176,7 @@ As per [a comment by bobblyllama](https://github.com/sts10/radiation/issues/3#is
 
 #### What's New in v 0.2.0
 
-Time-zone support, thanks to a kernel of code [provided by ~erik himself](https://github.com/sts10/radiation/issues/3). Note that this 
+Time-zone support, thanks to a kernel of code [provided by ~erik himself](https://github.com/sts10/radiation/issues/3). Note that this is a pretty big update in that Radiation now uses a `user_settings.rb` file for 4 important settings that users can change, including timezone. For this reason, if upgrading from v 0.1.x to v 0.2.x that you un-install and re-install Radiation as per the note on top of this README. 
 
 #### What's New in v 0.1.1
 
