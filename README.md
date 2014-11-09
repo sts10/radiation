@@ -8,14 +8,7 @@ If you've upgrading Radiation from version 0.1.2 or lower I would recommend inst
 
 This doesn't mean you'll lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit out the `/radiation` directory where the application lives. 
 
-To do this and upgrade to v 0.2.0, run `rm -rf ~/radiation`. Now run: 
-
-```
-git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
-```
-
-and then run `ruby bin/runner.rb install`
-
+To do this and upgrade to v 0.2.0, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
 
 # Getting Started
 
@@ -29,7 +22,9 @@ git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
 
 then hit enter.
 
-**Step 2:** Now paste or type this into your terminal `ruby bin/runner.rb` and hit enter. You should be asked if you'd like to setup Radiation. Answer in the affirmative!
+**Step 2:** Now paste or type `gem install tzinfo` and hit enter. This may take a second. 
+
+**Step 3:** Now paste or type this into your terminal `ruby bin/runner.rb` and hit enter. You should be asked if you'd like to setup Radiation. Answer in the affirmative!
 
 You should be good to go! See the usage section below for how to use Radiation. 
 
