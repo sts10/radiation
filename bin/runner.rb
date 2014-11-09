@@ -1,14 +1,11 @@
 #!/usr/bin/env ruby
-require_relative '../config/environment'
- 
-if ARGV[0] == "publish"
-  this_blog = Blog.new
-  this_blog.publish!('../radiation_posts/')
-  
-elsif ARGV[0] == "install"
+
+if ARGV[0] == "install"
   puts "Installing some Ruby gems..."
   system "gem install tzinfo"
   puts "Ruby gems installed!"
+
+  require_relative '../config/environment'
 
   system "mkdir ../radiation_posts"
   
@@ -30,6 +27,8 @@ elsif ARGV[0] == "install"
   puts "See ReadMe for more information. We strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
 
 else
+  require_relative '../config/environment'
+
   if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?($my_template_location)
 
     puts ""
