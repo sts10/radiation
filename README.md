@@ -62,9 +62,9 @@ When you're done editing, call Radiation and run the publish command from the me
 
 ### Editing User Settings
 
-In the main menu you'll see option `s` for editing user settings. Here you can do things like set your local timezone (by default set to New York), change the text editor you use (I think on totally nuclear boxes there' sonly `vim` or `nano`), and change what file your blog gets printed to (default is `public_html/blog.html`). 
+In the main menu you'll see option `s` for editing user settings. Here you can do things like set your local timezone (by default set to New York), change the text editor you use (I think on totally nuclear boxes there's only `vim` or `nano`), and change what file your blog gets printed to (default is `public_html/blog.html`). 
 
-Just save this file and the new settings should be made immediately. 
+Once you make your changes, save the file and then restart Radiation for the changes to take effect.
 
 ### Where do my Posts Get Saved to? 
 
