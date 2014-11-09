@@ -22,7 +22,7 @@ git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
 
 then hit enter.
 
-**Step 2:** You should be asked if you'd like to set up Radiation. Answer in the affirmative!
+**Step 2:** Now paste or type this into your terminal `ruby bin/runner.rb` and hit enter. You should be asked if you'd like to setup Radiation. Answer in the affirmative!
 
 You should be good to go! See the usage section below for how to use Radiation. 
 
