@@ -4,9 +4,9 @@ Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.c
 
 ### SPECIAL NOTE ON V 0.2.0
 
-If you've upgrading Radiation from version 0.1.2 or lower I would recommend installing v 0.2.0 from scratch. v 0.2.0 has handles user settings much more cleanly and offers basic time zone support, however these changes were substantially enough that I recommend you start from scratch. 
+If you've upgrading Radiation from version 0.1.2 or lower I would recommend installing v 0.2.0 from scratch. v 0.2.0 handles user settings much more cleanly and offers basic time zone support, however these changes were substantially enough that I recommend you start from scratch. 
 
-This doesn't mean you'll lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit out the `/radiation` directory where the application lives. 
+This doesn't mean you'll lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit outside the `/radiation` directory where the application lives. 
 
 To do this and upgrade to v 0.2.0, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
 
