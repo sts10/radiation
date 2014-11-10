@@ -170,6 +170,12 @@ I know there's a better way to have users install Radiation--something with the 
 
 # Changelog
 
+#### What's New in v 0.2.2
+
+Adds Markdown support using the kramdown Ruby gem. I also created a `/bin/install.rb` as a ghetto bundler installation. This is because Radiation now requires 3 Ruby gems not included with Ruby. 
+
+Users now can choose, when creating a new post, whether they want it to be HTML or Markdown. the Markdown flavor if GFM, or GitHub flavored. Code blocks are delineated with triplet backticks, and syntax highlighting is supported through coderay. 
+
 #### What's New in v 0.2.1
 
 As per [a comment by bobblyllama](https://github.com/sts10/radiation/issues/3#issuecomment-62322602), v 0.2.1 allows user to not specify a timezone in their user_settings.
@@ -233,8 +239,6 @@ I greatly simplified model structure. Where there was post_compiler and site_gen
 - Smoother installation and usage processes. 
 - Individual HTML pages for each post.
 - Pagination
-- Support for multiple text editors
-- Easier way to edit existing posts
 - Export to JSON
 - A way to save and store drafts
 
