@@ -21,9 +21,11 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     puts ""
     puts "Main Menu"
     puts "========="
+    puts ""
     puts "What do you want to do?"
+    puts ""
     puts "p - publish your blog"
-    puts "n - create new blog post"
+    puts "n - create a new blog post"
     puts "e - edit a published post"
     puts "s - edit my user settings"
     puts "r - restore my user settings to the defaults"
@@ -114,12 +116,24 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
       gets
 
     elsif choice == 's'
+      system "clear"
+
       if File.exist?('../radiation_user_settings.rb') == false
         system "cp default_settings.rb ../radiation_user_settings.rb"
       end
 
       puts "Opening your user settings now"
       system "#{$my_text_editor_command} ../radiation_user_settings.rb"
+
+      system "clear"
+      puts "For changes to take effect, Radiation has to restart."
+      puts "I'll quit now. Just launch Radiation again."
+      puts ""
+      puts "Press ENTER to continue..."
+      gets
+
+      choice = 'q'
+
     elsif choice == 'r'
       system "clear"
       puts "I'm about to overwrite your user settings with the defualts from v #{current_version}."
@@ -129,13 +143,23 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
       if r_choice == 'y'
         system "rm ../radiation_user_settings.rb"
         system "cp default_settings.rb ../radiation_user_settings.rb"
+        
+        system "clear"
         puts "User settings restored to defaults for v #{current_version}. Edit them through the main menu."
+        puts ""
+        puts "For changes to take effect, Radiation has to restart."
+        puts "I'll quit now. Just launch Radiation again."
+        puts ""
+        puts "Press ENTER to continue..."
+        gets
+
+        choice = 'q'
       else
         puts "OK, I'll leave your user settings alone."
+        puts ""
+        puts "Press ENTER to continue..."
+        gets  
       end
-
-      puts "Press ENTER to continue..."
-      gets  
 
     elsif choice == 't'
       puts "Opening your blog template now"
