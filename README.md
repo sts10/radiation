@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.2.2 ☢
+# ☢ Radiation v 0.2.3 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
@@ -8,7 +8,7 @@ If you're upgrading Radiation from version 0.1.2 or lower I would recommend inst
 
 This doesn't mean you'll lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit outside the `/radiation` directory where the application lives. 
 
-To do this and upgrade to v 0.2.2, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
+To do this and upgrade to the current version of Radiation, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
 
 # Getting Started
 
@@ -34,7 +34,7 @@ _Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.
 
 ### Usage 
 
-As of Radiation v 0.2.2, running Radiation is still a little clunky.
+As of Radiation v 0.2.x, running Radiation is still a little clunky.
 
 From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 

@@ -99,16 +99,15 @@ class Blog
   end
   
   def present_edit_menu(directory_location_of_posts)
-
     user_files = directory_location_of_posts + '*'
 
-    # sort html files in reverse chron order by creation time
+    # sort post files in reverse chron order by creation time
     user_files_sorted = Dir[user_files].sort_by{ |f| 
       File.basename(f)
     }.reverse
 
     post_id = 1    
-    puts "Enter the number of the post you wish to edit:"
+    puts "Enter the number of the post you wish to edit (enter q to return to menu):"
 
     Dir.glob(user_files_sorted) do |file_location|
       puts "#{post_id} - #{file_location}"
@@ -116,6 +115,10 @@ class Blog
     end
 
     number_to_edit = gets.chomp.strip
+
+    if number_to_edit == 'q'
+      return false
+    end
 
     file_name_to_edit = user_files_sorted[number_to_edit.to_i - 1]
 
