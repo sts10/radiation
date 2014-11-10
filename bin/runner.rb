@@ -26,6 +26,7 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     puts "n - create new blog post"
     puts "e - edit a published post"
     puts "s - edit my user settings"
+    puts "r - restore my user settings to the defaults"
     puts "t - edit my blog template"
     puts "h - get help"
     puts "q - quit"
@@ -113,8 +114,29 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
       gets
 
     elsif choice == 's'
+      if File.exist?('../radiation_user_settings.rb') == false
+        system "cp default_settings.rb ../radiation_user_settings.rb"
+      end
+
       puts "Opening your user settings now"
-      system "#{$my_text_editor_command} ../radiation/user_settings.rb"
+      system "#{$my_text_editor_command} ../radiation_user_settings.rb"
+    elsif choice == 'r'
+      system "clear"
+      puts "I'm about to overwrite your user settings with the defualts from v #{current_version}."
+      puts "Your user setting will be overwritten. Is that OK? (y/N)"
+      r_choice = gets.chomp.strip.downcase
+
+      if r_choice == 'y'
+        system "rm ../radiation_user_settings.rb"
+        system "cp default_settings.rb ../radiation_user_settings.rb"
+        puts "User settings restored to defaults for v #{current_version}. Edit them through the main menu."
+      else
+        puts "OK, I'll leave your user settings alone."
+      end
+
+      puts "Press ENTER to continue..."
+      gets  
+
     elsif choice == 't'
       puts "Opening your blog template now"
       system "#{$my_text_editor_command} #{$my_template_location}"
@@ -142,6 +164,14 @@ else
       puts "Creating radiation_templates folder and putting a sample template in there with the proper file name."
       system "mkdir ../radiation_templates"
       system "cp sample_templates/blog.html.erb #{$my_template_location}"
+    end
+
+    if File.exist?('../radiation_user_settings.rb')
+      puts "It looks like you already have a radiation_user_settings.rb file. Awesome!"
+      puts "I'll leave it be, but you can check /radiation/default_settings.rb to see if there are any new settings for you to edit in this version (v #{current_version})"
+    else 
+      puts "Creating a radiation_user_settings file for you. You can edit it later or not, no worries."
+      system "cp default_settings.rb ../radiation_user_settings.rb"
     end
 
     puts ""
