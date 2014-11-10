@@ -113,9 +113,9 @@ else
 
     if confirm == 'y'
 
-      puts "Installing some Ruby gems..."
-      system "gem install tzinfo"
-      puts "Ruby gems installed!"
+      # puts "Installing some Ruby gems..."
+      # system "gem install tzinfo"
+      # puts "Ruby gems installed!"
 
       system "mkdir ../radiation_posts"
       
