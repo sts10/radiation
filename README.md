@@ -1,14 +1,14 @@
-# ☢ Radiation v 0.2.1 ☢
+# ☢ Radiation v 0.2.2 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
 ### SPECIAL NOTE ON V 0.2.0 and Above
 
-If you've upgrading Radiation from version 0.1.2 or lower I would recommend installing v 0.2.0 or above from scratch. v 0.2.0 and above handles user settings much more cleanly and offers basic time zone support, however these changes were substantially enough that I recommend you start from scratch. 
+If you're upgrading Radiation from version 0.1.2 or lower I would recommend installing v 0.2.0 or above from scratch. v 0.2.0 and above handles user settings much more cleanly and offers basic time zone support, however these changes are substantial enough that I recommend you start from scratch. 
 
 This doesn't mean you'll lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit outside the `/radiation` directory where the application lives. 
 
-To do this and upgrade to v 0.2.1, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
+To do this and upgrade to v 0.2.2, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
 
 # Getting Started
 
@@ -22,11 +22,11 @@ git clone https://github.com/sts10/radiation.git ~/radiation; cd ~/radiation
 
 then hit enter.
 
-**Step 2:** Now paste or type `gem install tzinfo` and hit enter. This may take a second. 
+**Step 2:** Now paste or type `ruby bin/install.rb` and hit enter. This may take a second. 
 
 **Step 3:** Now paste or type this into your terminal `ruby bin/runner.rb` and hit enter. You should be asked if you'd like to setup Radiation. Answer in the affirmative!
 
-You should be good to go! See the usage section below for how to use Radiation. 
+You should now be good to go! See the usage section below for how to use Radiation. 
 
 _Note:_ By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
 
@@ -40,7 +40,7 @@ From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
 You'll then be greeted by the main Radiation menu. 
 
-From the main menu, you can choose optin `n` to create a new post. 
+From the main menu, you can choose option `n` to create a new post. 
 Currently you must write your new blog post **in HTML**. That means that each paragraphs should be wrapped in p tags or at least have < br >s between them. You'll also need to put a title for your post in the post. I'd recommend using an h2 tag.
 
 Here's a quick example: 
