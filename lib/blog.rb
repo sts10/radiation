@@ -23,6 +23,8 @@ class Blog
         html = true
       elsif file_location[-6..-1] == ".mdown"
         mdown = true
+      else  # if some unrecognized file extension try rendering in html
+        html = true 
       end
       # binding.pry
         
@@ -46,18 +48,14 @@ class Blog
 
       while (line = file.gets)
         if this_post.content
-          if html
-            this_post.content = this_post.content + line
-          elsif mdown
-            this_post.content = this_post.content + Kramdown::Document.new(line, :input => 'GFM').to_html
-          end
+          this_post.content = this_post.content + line
         else 
-          if html
-            this_post.content = line
-          elsif mdown
-            this_post.content = Kramdown::Document.new(line, :input => 'GFM').to_html
-          end
+          this_post.content = line
         end
+      end
+
+      if mdown
+        this_post.content = Kramdown::Document.new(this_post.content, :input => 'GFM').to_html
       end
 
       posts_array << this_post
