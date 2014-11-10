@@ -64,12 +64,24 @@ else
         this_blog.publish!('../radiation_posts/')
 
       elsif choice == 'n'
+        puts "Would you like to write in HTML or Markdown?"
+        puts "1 - HTML"
+        puts "2 - Markdown"
+        post_type = gets.chomp.strip
+
+        if post_type == '2'
+          post_type = "markdown"
+        else
+          post_type = "html"
+        end
+
+
         puts "Please enter a file name for your new post (Example: My First Post). (Enter 'q' to return to main menu.)"
         new_post_name = gets.chomp.strip.downcase
         
         if new_post_name != 'q'
           new_post = Post.new
-          new_post.create(new_post_name)
+          new_post.create(new_post_name, post_type)
 
           new_post.edit
 

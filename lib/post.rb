@@ -2,19 +2,26 @@
 class Post
   attr_accessor :file_location, :permalink, :creation_datetime_obj, :formatted_time, :content
 
-  def create(new_post_name)
+  def create(new_post_name, post_type)
 
     # clean new_post_name
-
     if (new_post_name[-5..-1] == ".html")
       new_post_name = new_post_name[0..-5]
+    elsif (new_post_name[-6..-1] == ".mdown")
+      new_post_name = new_post_name[0..-6]
     elsif (new_post_name[-4..-1] == ".htm")
       new_post_name = new_post_name[0..-4]
     end
+    
     new_post_name = new_post_name.strip.gsub(' ', '-').gsub('?', '').gsub('.', '').gsub('!', '').gsub(':', '').gsub('"', '').gsub("'", "")
 
+
     # Add file extension
-    new_post_name = new_post_name + ".html"
+    if post_type == "html"
+      new_post_name = new_post_name + ".html"
+    elsif post_type == "markdown"
+      new_post_name = new_post_name + ".mdown"
+    end
 
     # Add current time
     # current_time = Time.new.in_timezone('America/New_York')

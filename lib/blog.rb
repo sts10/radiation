@@ -55,7 +55,8 @@ class Blog
       end
 
       if mdown
-        this_post.content = Kramdown::Document.new(this_post.content, :input => 'GFM').to_html
+        this_post.content = Kramdown::Document.new(this_post.content, :input => "GFM", :smart_quotes => ["lsquo", "rsquo", "ldquo", "rdquo"]).to_html
+        this_post.content = this_post.content.gsub("“", "&ldquo;").gsub("”", "&rdquo;").gsub("‘", "&lsquo;").gsub("’", "&rsquo;")
       end
 
       posts_array << this_post
@@ -101,7 +102,7 @@ class Blog
   
   def present_edit_menu(directory_location_of_posts)
 
-    html_files = directory_location_of_posts + '*.html'
+    html_files = directory_location_of_posts + '*'
 
     # sort html files in reverse chron order by creation time
     html_files_sorted = Dir[html_files].sort_by{ |f| 
