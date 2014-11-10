@@ -1,5 +1,3 @@
-require 'pry'
-# require 'redcarpet'
 
 class Blog   
 
@@ -26,7 +24,7 @@ class Blog
       else  # if some unrecognized file extension try rendering in html
         html = true 
       end
-      # binding.pry
+   
         
       file = File.new(file_location, "r")
 
