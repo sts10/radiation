@@ -1,8 +1,12 @@
-# ☢ Radiation v 0.2.3 ☢
+# ☢ Radiation v 0.3.0 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
-### SPECIAL NOTE ON V 0.2.0 and Above
+### Upgrading to v 0.3.X
+
+v 0.3.0 is another big update in that it changes the way user settings are saved. Basically now user settings are kept outside of the `~/radiation` directory, so future updates won't overwrite your user settings. However to upgrade from v 0.2.X to v 0.3.0, I recommend doing a complete re-install: to do this run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
+
+### SPECIAL NOTE ON V 0.2.X
 
 If you're upgrading Radiation from version 0.1.2 or lower I would recommend installing v 0.2.0 or above from scratch. v 0.2.0 and above handles user settings much more cleanly and offers basic time zone support, however these changes are substantial enough that I recommend you start from scratch. 
 
@@ -89,7 +93,9 @@ Same thing goes for JavaScript-- I'd recommend creating a `js` directory folder 
 
 ### Changing Defaults 
 
-Just use the `s - edit my user settings` option from the main menu to change the defaults that are available to change. To change other settings you'll have to dive into the code in `/radiation` itself. If you screw up, just `rm -rf` the radiation directory and re-install the latest version. 
+Just use the `s - edit my user settings` option from the main menu to change the defaults that are available to change. If you ever want to restore the default user settings, just choose the `r` option in the main menu.
+
+To change other settings you'll have to dive into the code in `/radiation` itself. If you screw up, just `rm -rf` the radiation directory and re-install the latest version. 
 
 ### Making Radiation Easier to Run by Editing Your Bash Profile. 
 
@@ -121,13 +127,14 @@ If you're really buying into Radiation's ability to re-create your blog from you
 If you use the setup command described in the installation instructions above, Radiation should give you the following directory structure:
 
 ```
-~/public_html
-~/radiation
-~/radiation_templates
-~/radiation_posts
+~/public_html/
+~/radiation/
+~/radiation_user_settings.rb
+~/radiation_templates/
+~/radiation_posts/
 ```
 
-The reason that both `/radiation_posts` and `/radiation_templates` sit outside of the `/radiation` directory is so that when users `git pull` a newer version of Radiation it doesn't overwrite their posts or their personalized `blog.html.erb` template.
+The reason that `/radiation_posts/`, `/radiation_templates/`, and `/radiation_user_settings`  sit outside of the `/radiation` directory is so that when users re-install Radiation or update to a newer version of Radiation it doesn't overwrite their posts, their personalized `blog.html.erb` template, or their user settings
 
 
 ### Does Radiation Work On Other Clubs like Tilde Club? 
@@ -174,6 +181,12 @@ I really don't like how I currently require new users to paste that clunky bash 
 I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 # Changelog
+
+#### What's New in v 0.3.0
+
+Another big improvement to how Radiation handles user settings. User settings are now stored in a file outside of `~/radiation`, just like `/radiation_posts` and `/radiation_templates` do. The purpose is so that when users re-install Radiation or update to a new version using `fit pull`, their user settings are preserved. 
+
+You can get a good idea of how this works by looking at `config/environment.rb`
 
 #### What's New in v 0.2.3
 
