@@ -5,17 +5,17 @@ class Blog
 
   def compile(directory_location_of_posts)
   
-    html_files = directory_location_of_posts + '*' #.html'
+    user_files = directory_location_of_posts + '*' #.html'
 
     # sort html files in reverse chron order by creation time
-    html_files_sorted = Dir[html_files].sort_by{ |f| 
+    user_files_sorted = Dir[user_files].sort_by{ |f| 
       File.basename(f)
     }.reverse
 
     post_id = 0
     posts_array = []
 
-    Dir.glob(html_files_sorted) do |file_location|
+    Dir.glob(user_files_sorted) do |file_location|
       html = false
       mdown = false
 
@@ -102,24 +102,24 @@ class Blog
   
   def present_edit_menu(directory_location_of_posts)
 
-    html_files = directory_location_of_posts + '*'
+    user_files = directory_location_of_posts + '*'
 
     # sort html files in reverse chron order by creation time
-    html_files_sorted = Dir[html_files].sort_by{ |f| 
+    user_files_sorted = Dir[user_files].sort_by{ |f| 
       File.basename(f)
     }.reverse
 
     post_id = 1    
     puts "Enter the number of the post you wish to edit:"
 
-    Dir.glob(html_files_sorted) do |file_location|
+    Dir.glob(user_files_sorted) do |file_location|
       puts "#{post_id} - #{file_location}"
       post_id = post_id + 1
     end
 
     number_to_edit = gets.chomp.strip
 
-    file_name_to_edit = html_files_sorted[number_to_edit.to_i - 1]
+    file_name_to_edit = user_files_sorted[number_to_edit.to_i - 1]
 
     system "#{$my_text_editor_command} #{file_name_to_edit}"
   end
