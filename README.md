@@ -34,16 +34,17 @@ _Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.
 
 ### Usage 
 
-As of Radiation v 0.2.1, running Radiation is still a little clunky.
+As of Radiation v 0.2.2, running Radiation is still a little clunky.
 
 From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
 
 You'll then be greeted by the main Radiation menu. 
 
 From the main menu, you can choose option `n` to create a new post. 
-Currently you must write your new blog post **in HTML**. That means that each paragraphs should be wrapped in p tags or at least have < br >s between them. You'll also need to put a title for your post in the post. I'd recommend using an h2 tag.
 
-Here's a quick example: 
+You'll then be given a choice of whether you want to write this new post in HTML or [Markdown](http://daringfireball.net/projects/markdown/).
+
+If you choose to write HTML, here's a quick example of what it should look like: 
 
 ```
 <h2>Here's My Blog Post Title</h2>
@@ -52,7 +53,9 @@ Here's a quick example:
 <img src="URL">
 ```
 
-Once you've saved your post, you then have to use the Radiation menu to "publish" your blog. Your new post should then be live.
+The Markdown is GFM or GitHub flavored. Multi-line code blocks should be delineated with triple backticks (\`\`\`). You can also specify a programming language for syntax highlighting. 
+
+Once you've saved your post in your text editor, you then have to use the Radiation menu to "publish" your blog. Just choose the publish option from the main menu. Your new post should be live in a few seconds. 
 
 **See section below on adding a `radiation` function to your `.bash_profile` if you want to make usage significantly easier.**
 
