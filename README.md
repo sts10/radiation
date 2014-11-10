@@ -38,12 +38,14 @@ _Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.
 
 ### Usage 
 
+#### Running Radiation
 As of Radiation v 0.2.x, running Radiation is still a little clunky.
 
-From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`
+From anywhere in your box you can run `cd ~/radiation; ruby bin/runner.rb`. You'll then be greeted by the main Radiation menu. 
 
-You'll then be greeted by the main Radiation menu. 
+**See section below on adding a `radiation` function to your `.bash_profile` if you want to make usage significantly easier.**
 
+#### Creating a New Blog Post 
 From the main menu, you can choose option `n` to create a new post. 
 
 You'll then be given a choice of whether you want to write this new post in HTML or [Markdown](http://daringfireball.net/projects/markdown/).
@@ -59,10 +61,10 @@ If you choose to write HTML, here's a quick example of what it should look like:
 
 The Markdown is GFM or GitHub flavored. Multi-line code blocks should be delineated with triple backticks (\`\`\`). You can also specify a programming language for syntax highlighting. 
 
-Once you've saved your post in your text editor, you then have to use the Radiation menu to "publish" your blog. Just choose the publish option from the main menu. Your new post should be live in a few seconds. 
+#### Publishing Your New Blog Post
+Once you've saved your post in your text editor, you'll be asked if you want to publish your changes. If you enter 'y', your new post should be live in a few seconds. If you select 'n', your post will be saved but not pushed to your blog. 
 
-**See section below on adding a `radiation` function to your `.bash_profile` if you want to make usage significantly easier.**
-
+#### Editing Posts
 To edit posts you can use the 'e' option in the menu. Alternatively, you can go into `~/radiation_posts` and edit the post you want to edit in whatever text editor you like. 
 
 When you're done editing, call Radiation and run the publish command from the menu. (Note the bugs section below though.)
