@@ -141,7 +141,9 @@ Radiation is super new and untested, so don't feel bad if it's fucking up. It's 
 
 ### I Know Some Ruby/ERB/Shell. How Can I Help? 
 
-Awesome! Radiation, as of v 0.1.0 at least, consists of 2 Ruby classes (or models), `post` and `blog`. These are located in the `lib`  directory. It then has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
+Awesome! Radiation, as of v 0.2.2 at least, consists of 3 Ruby classes (or models), `Post`, `Blog` and `Time`. These are located in the `lib`  directory. `Time` just adds a method to the Time objects for setting the user's timezone from the user_settings file. The meat of the app is in the `Post` and `Blog` models.
+
+It also has a `runner.rb` which is what the user executes. `runner.rb` is in `bin`. 
 
 **`bin/runner.rb` is a great place to start if you're new to the project.**
 
@@ -175,6 +177,8 @@ I know there's a better way to have users install Radiation--something with the 
 Adds Markdown support using the kramdown Ruby gem. I also created a `/bin/install.rb` as a ghetto bundler installation. This is because Radiation now requires 3 Ruby gems not included with Ruby. 
 
 Users now can choose, when creating a new post, whether they want it to be HTML or Markdown. the Markdown flavor if GFM, or GitHub flavored. Code blocks are delineated with triplet backticks, and syntax highlighting is supported through coderay. 
+
+**NOTE:** Posts created in older versions of Radiation will still render in HTML, because the post file extension is `.html`. Also, users can continue to write posts in HTML by simply choosing HTML every time they create a new post. 
 
 #### What's New in v 0.2.1
 
