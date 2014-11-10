@@ -107,7 +107,7 @@ class Blog
     }.reverse
 
     post_id = 1    
-    puts "Enter the number of the post you wish to edit (enter q to return to menu):"
+    puts "Enter the number of the post you wish to edit (enter q to return to main menu):"
 
     Dir.glob(user_files_sorted) do |file_location|
       puts "#{post_id} - #{file_location}"

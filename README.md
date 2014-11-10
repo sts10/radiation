@@ -175,6 +175,10 @@ I know there's a better way to have users install Radiation--something with the 
 
 # Changelog
 
+#### What's New in v 0.2.3
+
+Display version number in main menu logo. Also better main menu user flow all around, including more screen clears (thanks to [bobbylama](https://github.com/bobbyllama/) for the idea). 
+
 #### What's New in v 0.2.2
 
 Adds Markdown support using the kramdown Ruby gem. I also created a `/bin/install.rb` as a ghetto bundler installation. This is because Radiation now requires 3 Ruby gems not included with Ruby. 
