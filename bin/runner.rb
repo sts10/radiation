@@ -3,7 +3,7 @@ require_relative '../config/environment'
  
 current_version = "0.3.0"
 
-if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?($my_template_location)# && File.exist?('../radiation_user_settings.rb')
+if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?($my_template_location)
 
   choice = ''
   while choice != 'q'

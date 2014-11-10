@@ -5,7 +5,7 @@ class Blog
   
     user_files = directory_location_of_posts + '*' #.html'
 
-    # sort html files in reverse chron order by creation time
+    # sort files in reverse chron order by creation time
     user_files_sorted = Dir[user_files].sort_by{ |f| 
       File.basename(f)
     }.reverse
