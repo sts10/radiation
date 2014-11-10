@@ -1,9 +1,11 @@
+require 'pry'
+# require 'redcarpet'
 
 class Blog   
 
   def compile(directory_location_of_posts)
   
-    html_files = directory_location_of_posts + '*.html'
+    html_files = directory_location_of_posts + '*' #.html'
 
     # sort html files in reverse chron order by creation time
     html_files_sorted = Dir[html_files].sort_by{ |f| 
@@ -14,14 +16,28 @@ class Blog
     posts_array = []
 
     Dir.glob(html_files_sorted) do |file_location|
+      html = false
+      mdown = false
 
+      if file_location[-5..-1] == ".html"
+        html = true
+      elsif file_location[-6..-1] == ".mdown"
+        mdown = true
+      end
+      # binding.pry
+        
       file = File.new(file_location, "r")
 
   
       this_post = Post.new
       this_post.file_location = file_location
 
-      this_post.permalink = file_location[19..-6]
+      if html 
+        this_post.permalink = file_location[19..-6]
+      elsif mdown
+        this_post.permalink = file_location[19..-7]
+      end
+        
 
       # the following two lines could probably be refactored
       this_post.creation_datetime_obj = this_post.get_datetime_object(file_location)
@@ -30,9 +46,17 @@ class Blog
 
       while (line = file.gets)
         if this_post.content
-          this_post.content = this_post.content + line
+          if html
+            this_post.content = this_post.content + line
+          elsif mdown
+            this_post.content = this_post.content + Kramdown::Document.new(line, :input => 'GFM').to_html
+          end
         else 
-          this_post.content = line;
+          if html
+            this_post.content = line
+          elsif mdown
+            this_post.content = Kramdown::Document.new(line, :input => 'GFM').to_html
+          end
         end
       end
 

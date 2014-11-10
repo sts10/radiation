@@ -1,6 +1,7 @@
 require 'erb'
 require 'date'
 require 'tzinfo'
+require 'kramdown'
 
 require_relative '../user_settings.rb'
 require_relative '../lib/time'
