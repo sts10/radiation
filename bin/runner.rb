@@ -3,7 +3,7 @@ require_relative '../config/environment'
  
 current_version = "0.2.3"
 
-if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?($my_template_location)
+if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?($my_template_location) && File.exist?('../radiation_user_settings.rb')
 
   choice = ''
   while choice != 'q'
@@ -174,8 +174,8 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
   end # ends while loop
 else
   # not setup
-  puts "It looks like you haven't setup Radiation yet."
-  puts "Would you like to setup Radiation now? (y/n)"
+  puts "It looks like you haven't FULLY setup Radiation yet."
+  puts "Would you like to setup Radiation now? (y/N)"
 
   confirm = gets.chomp.downcase.strip
 
@@ -194,18 +194,22 @@ else
       puts "It looks like you already have a radiation_user_settings.rb file. Awesome!"
       puts "I'll leave it be, but you can check /radiation/default_settings.rb to see if there are any new settings for you to edit in this version (v #{current_version})"
     else 
-      puts "Creating a radiation_user_settings file for you. You can edit it later or not, no worries."
+      puts "Creating a radiation_user_settings.rb file for you. You can edit it later or not, no worries."
       system "cp default_settings.rb ../radiation_user_settings.rb"
     end
 
     puts ""
     puts ""
-    puts "Radiation is now installed!"
+    puts "Radiation is now setup and ready to go!"
     puts ""
     puts ""
 
-    puts "You may want to go to ~/radiation_templates/blog.html.erb to fill in your personal information."
-    puts "See ReadMe for more information. We strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
+    puts "What now?"
+    puts "You can run Radiation again and do a number of things:"
+    puts "- create a new blog post"
+    puts "- edit your blog template"
+    puts "- edit your user settings"
+    puts "See ReadMe for more information. Also, we strongly suggest editing your .bash_profile to be able to call Radiation from anywhere."
   else 
     puts "OK maybe later"
   end
