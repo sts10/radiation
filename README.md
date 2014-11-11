@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.3.1 ☢
+# ☢ Radiation v 0.3.2 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
@@ -32,7 +32,7 @@ then hit enter.
 
 You should now be good to go! See the usage section below for how to use Radiation. 
 
-_Note:_ By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it. So if it's important to you, back it up somewhere safe! 
+_Note:_ By default, Radiation creates your blog at `~/public_html/blog.html`. If you have a file called blog.html in your public_html directory, Radiation will overwrite it when you publish your blog for the first time. You can either move your old blog.html somewhere else, or change where your Radiation blog is printed to in your user settings (see below)
 
 _Note 2:_ If you're upgrading from version 0.0.8 or lower of Radiation to v 0.1.0 or higher, you'll need to move your radiation posts from `~/posts` to `~/radiation_posts`. To do this, run `mv ~/posts ~/radiation_posts`.
 
@@ -69,6 +69,29 @@ To edit posts you can use the 'e' option in the menu. Alternatively, you can go 
 
 When you're done editing, call Radiation and run the publish command from the menu. (Note the bugs section below though.)
 
+### Making Radiation Easier to Run by Editing Your Bash Profile
+
+Entering `cd ~/radiation; ruby bin/runner.rb` every time you want to run Radiation sucks. 
+
+So let's make it so you can just type `radiation` and hit enter from any directory and Radiation will launch. 
+
+To add a radiation function to your bash_profile, simply use the `b - Add radiation function to your bash_profile` option in the main menu (if you don't see that option, see below). It will ask you to confirm. 
+
+**NOTE: You only want to do this once! Even if you remove radiation this function will still be in your bash_profile.**
+
+FYI This menu option adds the following function to your bash_profile:
+
+```
+function radiation {
+    cwd=$(pwd)
+    cd ~/radiation
+    ruby bin/runner.rb
+    cd $cwd
+}
+```
+
+If you do not see option `b - Add radiation function to your bash_profile` in your Radiation main menu, that means you already have a function called `radiation` in your bash_profile. You most likely do NOT want to add another one, but Radiation will let you if you confirm. At this point you'll definitely want to see what's going on in your bash_profile by running `vim ~/.bash_profile`.
+
 ### Editing User Settings
 
 In the main menu you'll see option `s` for editing user settings. Here you can do things like set your local timezone (by default set to New York), change the text editor you use (I think on totally nuclear boxes there's only `vim` or `nano`), and change what file your blog gets printed to (default is `public_html/blog.html`). 
@@ -98,27 +121,6 @@ Same thing goes for JavaScript-- I'd recommend creating a `js` directory folder 
 Just use the `s - edit my user settings` option from the main menu to change the defaults that are available to change. If you ever want to restore the default user settings, just choose the `r` option in the main menu.
 
 To change other settings you'll have to dive into the code in `/radiation` itself. If you screw up, just `rm -rf` the radiation directory and re-install the latest version. 
-
-### Making Radiation Easier to Run by Editing Your Bash Profile. 
-
-In `~/.bash_profile` you can add SOMETHING LIKE the following lines:
-
-```
-function radiation {
-    cwd=$(pwd)
-    cd ~/radiation
-    ruby bin/runner.rb
-    cd $cwd
-}
-```
-
-To do this, first open your `.bash_profile` by running `vim ~/.bash_profile`. Now enter the function above. To do this you need need to first enter vim's "insert" mode by pressing `i`.
-
-Once you've entered the function into your  bash_proifle, hit escape toe exit insert mode. Now save your `.bash_profile` with `:wq` in Vim's command mode. 
-
-Finally,  once you're back in your terminal, run `source ~/.bash_profile` to refresh your bash profile.
-
-Now you should be able to enter simply the word `radiation` from any directory and Radiation will run. When you quit Radiation you'll be returned to the directory you launched Radiation from.
 
 ### Git Ignore Suggestion
 
@@ -183,6 +185,10 @@ I really don't like how I currently require new users to paste that clunky bash 
 I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 # Changelog
+
+#### What's New in v 0.3.2
+
+Added a new main menu option "b - Add radiation function to your bash_profile" that appends a simple BASH function to the user's bash_profile for calling radiation from anywhere in their box. Some nifty `.grep` use makes it difficult for users to add the function multiple times. 
 
 #### What's New in v 0.3.1
 
