@@ -13,7 +13,7 @@ class Post
       new_post_name = new_post_name[0..-4]
     end
     
-    new_post_name = new_post_name.strip.gsub(' ', '-').gsub('?', '').gsub('.', '').gsub('!', '').gsub(':', '').gsub('"', '').gsub("'", "")
+    new_post_name = new_post_name.strip.gsub(' ', '-').gsub('?', '').gsub('.', '').gsub('!', '').gsub(':', '').gsub('"', '').gsub("'", "").gsub(":", "-").gsub(";","-").gsub("(", "").gsub(")", "")
 
 
     # Add file extension

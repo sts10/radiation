@@ -52,7 +52,7 @@ class Blog
         end
       end
 
-      if mdown
+      if mdown && this_post.content != nil
         this_post.content = Kramdown::Document.new(this_post.content, :input => "GFM", :smart_quotes => ["lsquo", "rsquo", "ldquo", "rdquo"]).to_html
         this_post.content = this_post.content.gsub("“", "&ldquo;").gsub("”", "&rdquo;").gsub("‘", "&lsquo;").gsub("’", "&rsquo;").gsub("–", "&mdash;")
       end
