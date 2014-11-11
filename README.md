@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.3.2 ☢
+# ☢ Radiation v 0.3.3 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
@@ -185,6 +185,12 @@ I really don't like how I currently require new users to paste that clunky bash 
 I know there's a better way to have users install Radiation--something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 # Changelog
+
+#### What's New in v 0.3.3
+
+Adds a new menu option to delete posts. This required a new method and some refactoring in `blog.rb`, in addition to adding the new menu choice in the ever-expanding `runner.rb`. 
+
+I really don't like that `runner.rb` is at 300 lines, but it seems to be working at this point. 
 
 #### What's New in v 0.3.2
 

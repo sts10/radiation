@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
  
-current_version = "0.3.2"
+current_version = "0.3.3"
 
 if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?($my_template_location)
 
@@ -36,7 +36,7 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     puts "t - edit my blog template"
     puts "h - get help"
     puts "q - quit"
-    
+    puts ""
     choice = gets.chomp.strip.downcase
 
     if choice == "p"
@@ -75,7 +75,7 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
         puts "Awesome post!"
         puts ""
         puts "Note: You must publish your blog for your new post to appear."
-        puts "Would you like to publish your blog now? (y/n)"
+        puts "Would you like to publish your blog now? (y/N)"
 
         p_choice = gets.chomp.strip.downcase
 
