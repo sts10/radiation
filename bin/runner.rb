@@ -27,9 +27,12 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     puts "p - publish your blog"
     puts "n - create a new blog post"
     puts "e - edit a published post"
+    puts "d - delete a published post"
+
+    puts ""
     puts "s - edit my user settings"
-    puts "b - Add radiation function to your bash_profile" if open('../.bash_profile').grep(/function radiation/) == []
-    puts "r - restore my user settings to the defaults"
+    puts "b - add radiation function to your bash_profile" if open('../.bash_profile').grep(/function radiation/) == []
+    puts "r - restore my user settings to the Radiation defaults"
     puts "t - edit my blog template"
     puts "h - get help"
     puts "q - quit"
