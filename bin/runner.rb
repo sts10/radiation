@@ -28,6 +28,7 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     puts "n - create a new blog post"
     puts "e - edit a published post"
     puts "s - edit my user settings"
+    puts "b - Add radiation function to your bash_profile" if open('../.bash_profile').grep(/function radiation/) == []
     puts "r - restore my user settings to the defaults"
     puts "t - edit my blog template"
     puts "h - get help"
@@ -166,12 +167,23 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
       system "#{$my_text_editor_command} #{$my_template_location}"
     elsif choice == 'b'
       system "clear"
-      puts "I'm about to edit your .bash_profile in order to make Radiation easier to run."
-      puts "Once the function is inserted you'll be able to run Radiation by just typing radiation and pressing enter anywhere in your box."
-      puts "If you have already done this, or entered your own method of callind Radiation,"
-      puts "don't run this."
-      puts ""
-      puts "Add a radiation function to your .bash_profile? (y/N)"
+
+      has_function = open('../.bash_profile').grep(/function radiation/)
+      if has_function != []
+        puts "It look like you already have a radiation function in your bash_profile."
+        puts "I strongly recommend you do NOT add another radiation fucntion at this time,"
+        puts "and instead go check your bash_profile by running vim ~/.bash_profile"
+        puts ""
+        puts "Add a radiation function to your .bash_profile? (y/N)"
+      else
+        puts "I'm about to edit your .bash_profile in order to make Radiation easier to run."
+        puts "Once the function is inserted you'll be able to run Radiation by just typing radiation and pressing enter anywhere in your box."
+        puts "If you have already done this, or you have your own method of callind Radiation,"
+        puts "don't run this."
+        puts ""
+        puts "Add a radiation function to your .bash_profile? (y/N)"
+      end
+
       b_choice = gets.chomp.strip.downcase
 
       if b_choice == 'y'
@@ -212,7 +224,7 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     end
   end # ends while loop
 else
-  # not setup
+  # user is not setup
   puts "It looks like you haven't FULLY setup Radiation yet."
   puts "Would you like to setup Radiation now? (y/N)"
 
