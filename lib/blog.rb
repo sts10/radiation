@@ -99,6 +99,33 @@ class Blog
   end
   
   def present_edit_menu(directory_location_of_posts)
+    
+    file_to_edit = present_menu_of_posts(directory_location_of_posts, "edit")
+
+    if file_to_edit
+      system "#{$my_text_editor_command} #{file_to_edit}"
+    else
+      return false
+    end
+  end
+
+  def present_delete_menu(directory_location_of_posts)
+    file_to_delete = present_menu_of_posts(directory_location_of_posts, "delete")
+
+    if file_to_delete
+      puts "Are you sure you wish to delete the post #{file_to_delete}? (y/N)"
+      d_choice = gets.chomp.downcase
+
+      if d_choice == 'y'
+        puts "Deleting post #{file_to_delete}"
+        system "rm #{file_to_delete}"
+      end
+    else
+      return false
+    end
+  end
+
+  def present_menu_of_posts(directory_location_of_posts, verb)
     user_files = directory_location_of_posts + '*'
 
     # sort post files in reverse chron order by creation time
@@ -107,22 +134,19 @@ class Blog
     }.reverse
 
     post_id = 1    
-    puts "Enter the number of the post you wish to edit (enter q to return to main menu):"
+    puts "Enter the number of the post you wish to #{verb} (enter q to return to main menu):"
 
     Dir.glob(user_files_sorted) do |file_location|
       puts "#{post_id} - #{file_location}"
       post_id = post_id + 1
     end
 
-    number_to_edit = gets.chomp.strip
+    file_number = gets.chomp.strip
 
-    if number_to_edit == 'q'
+    if file_number == 'q'
       return false
     end
 
-    file_name_to_edit = user_files_sorted[number_to_edit.to_i - 1]
-
-    system "#{$my_text_editor_command} #{file_name_to_edit}"
+    file_name = user_files_sorted[file_number.to_i - 1]
   end
-
 end
