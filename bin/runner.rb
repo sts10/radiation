@@ -164,6 +164,45 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     elsif choice == 't'
       puts "Opening your blog template now"
       system "#{$my_text_editor_command} #{$my_template_location}"
+    elsif choice == 'b'
+      system "clear"
+      puts "I'm about to edit your .bash_profile in order to make Radiation easier to run."
+      puts "Once the function is inserted you'll be able to run Radiation by just typing radiation and pressing enter anywhere in your box."
+      puts "If you have already done this, or entered your own method of callind Radiation,"
+      puts "don't run this."
+      puts ""
+      puts "Add a radiation function to your .bash_profile? (y/N)"
+      b_choice = gets.chomp.strip.downcase
+
+      if b_choice == 'y'
+        puts "Adding a radiation function to your .bash_profile."
+        File.open('../.bash_profile', "a") do |f|
+          f.puts("")
+          f.puts("# This function lets you call Radiation from anywhere in your box by")
+          f.puts("# simply typing radiation and pressing enter.")
+          f.puts("function radiation {")
+          f.puts("    cwd=$(pwd)")
+          f.puts("    cd ~/radiation")
+          f.puts("    ruby bin/runner.rb")
+          f.puts("    cd $cwd")
+          f.puts("}")
+          f.puts("")
+          # f.close
+        end
+
+        system "source ../.bash_profile"
+
+        system "clear"
+        puts "Cool. You should be good to go."
+        puts "Now, whenever you want to run Radiation, just type radiation and press enter."
+        puts ""
+        puts "If you'd like to check your .bash_profile for youself, quit Radiation"
+        puts "and run vim ~/.bash_profile"
+        puts ""
+        puts "Press ENTER to continue..."
+        gets
+      end
+
     elsif choice == 'h'
       puts ""
       puts "For help, please visit https://github.com/sts10/radiation or consult the readme in ~/radiation"
