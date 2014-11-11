@@ -26,8 +26,8 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     puts ""
     puts "p - publish your blog"
     puts "n - create a new blog post"
-    puts "e - edit a published post"
-    puts "d - delete a published post"
+    puts "e - edit a post"
+    puts "d - delete a post"
 
     puts ""
     puts "s - edit my user settings"
