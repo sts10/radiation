@@ -1,10 +1,10 @@
-# ☢ Radiation v 0.3.0 ☢
+# ☢ Radiation v 0.3.1 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
 ### Upgrading to v 0.3.X
 
-v 0.3.0 is another big update in that it changes the way user settings are saved. Basically now user settings are kept outside of the `~/radiation` directory, so future updates won't overwrite your user settings. However to upgrade from v 0.2.X to v 0.3.0, I recommend doing a complete re-install: to do this run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
+v 0.3.0 is another big update in that it changes the way user settings are saved. Basically now user settings are kept outside of the `~/radiation` directory, so future updates won't overwrite your user settings. However to upgrade from v 0.2.X to v 0.3.X, I recommend doing a complete re-install: to do this run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
 
 ### SPECIAL NOTE ON V 0.2.X
 
@@ -184,7 +184,11 @@ I know there's a better way to have users install Radiation--something with the 
 
 # Changelog
 
-#### What's New in v 0.3.0
+#### What's New in v 0.3.1
+
+Replaces semi-colons, colons, and parentheses in new post titles. Also no longer errors when trying to publish a blank Markdown post. 
+
+### What's New in v 0.3.0
 
 Another big improvement to how Radiation handles user settings. User settings are now stored in a file outside of `~/radiation`, just like `/radiation_posts` and `/radiation_templates` do. The purpose is so that when users re-install Radiation or update to a new version using `fit pull`, their user settings are preserved. 
 
