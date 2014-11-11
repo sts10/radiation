@@ -145,7 +145,7 @@ To be honest I don't know! This is because I don't have a Tilde Club account so 
  
 ### Need Help?
 
-Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [on Twitter](http://www.twitter.com/sts10) or at schlink@totallynuclear.club with any questions or ideas.
+Radiation is super new and untested, so don't feel bad if it's fucking up. It's almost certainly not your fault! Hit me up [on Twitter](http://www.twitter.com/sts10), at sschlinkert ]at[ gmail, or at schlink@totallynuclear.club with any questions or ideas.
 
 
 
