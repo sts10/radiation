@@ -51,11 +51,11 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     elsif choice == 'n'
       system "clear"
       puts "Would you like to write this new post in HTML or Markdown?"
-      puts "1 - HTML"
-      puts "2 - Markdown"
-      post_type = gets.chomp.strip
+      puts "h - HTML"
+      puts "m - Markdown"
+      post_type = gets.chomp.strip.downcase
 
-      if post_type == '2'
+      if post_type == 'm' || post_type == '2'
         post_type = "markdown"
       else
         post_type = "html"

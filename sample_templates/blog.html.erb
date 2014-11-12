@@ -7,21 +7,27 @@
     <div id="header">
         <h1>~Username Here If You Want!</h1>
     </div>
-    <p>This is the template for your blog. It's written in ERB.</p>
+    <p>This is the Radiation template for your blog. It's written in ERB.</p>
     <p>Maybe a header menu would go here!</p>
+
+    <p>You can edit it either by using the option in Radiation's main menu, or by finding it in the <code>~/radiation_templates</code> directory.</p>
     <p>By default file loads CSS from '~/public_html/css/styles.css' but you can change that.</p>
-    
+
+    <!-- Here is where your blog posts get generated. -->
     <div id="blog">
         <% @posts_array.each do |post| %>
-            <div class="blog_post">   
+            <div class="blog_post" id="<%= post.permalink %>">   
               
                 <div class="date">
-                  <a href="#<%= post.permalink %>" name="<%= post.permalink %>"><%= post.formatted_time %></a>
-                  </div>
+                  <a href="#<%= post.permalink %>"><%= post.formatted_time %></a>
+                </div>
+
                 <%= post.content %>
         
             </div>
         <% end %>
     </div>
+
+    <!-- You could put a footer down here, after all of you blog posts -->
   </body>
 </html>
