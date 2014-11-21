@@ -21,8 +21,9 @@
                 <div class="date">
                   <a href="#<%= post.permalink %>"><%= post.formatted_time %></a>
                 </div>
-
-                <%= post.content %>
+                <div class="post_content">
+                  <%= post.content %>
+                </div>
         
             </div>
         <% end %>
