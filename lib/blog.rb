@@ -125,6 +125,35 @@ class Blog
     end
   end
 
+  def present_update_menu(directory_location_of_posts)
+    file_to_update = present_menu_of_posts(directory_location_of_posts, "update")
+
+    if file_to_update
+      puts "Are you sure you wish to update the timestamp on the post #{file_to_update}? (y/N)"
+      u_choice = gets.chomp.downcase
+
+      if u_choice == 'y'
+        # Add current time
+        current_time = Time.new.in_timezone($my_timezone)
+
+        # get the filename part of the file location (../radiation_posts/file.html)
+        old_file_name = file_to_update.split('/')[2];
+
+        # This removes the timestamp from the filename.
+        # Since the filename is "YYYY-MM-DDTHH+MM+SS-post-name.html" we split the name into an array
+        # and remove the first 3 values (YYYY, MM, DDTHH+MM+SS). Then we join the array back into a string.
+        post_name = old_file_name.split('-').pop(2).join('-');
+        
+        file_name = current_time.strftime "%Y-%m-%dT%H+%M+%S-" + post_name
+        
+        # rename the file  
+        File.rename(file_to_update, "../radiation_posts/#{file_name}",)
+      end
+    else
+      return false
+    end
+  end
+
   def present_menu_of_posts(directory_location_of_posts, verb)
     user_files = directory_location_of_posts + '*'
 
