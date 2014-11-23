@@ -28,6 +28,7 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     puts "n - create a new blog post"
     puts "e - edit a post"
     puts "d - delete a post"
+    puts "u - update timestamp on a post"
 
     puts ""
     puts "s - edit my user settings"
@@ -138,6 +139,34 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
           this_blog.publish!('../radiation_posts/')
         else
           puts "OK, that post was deleted, but I won't publish right now. You can always publish from the main menu."
+        end
+      else 
+        puts "OK no worries. Let's head back to the main menu."
+      end
+
+      puts "Press ENTER to continue..."
+      gets
+  
+    elsif choice == 'u'
+      system "clear"
+
+      this_blog = Blog.new 
+      post_was_updated = this_blog.present_update_menu('../radiation_posts/')
+
+      if post_was_updated
+        system "clear"
+        puts "You updated the timestamp on a post."
+        puts ""
+        puts "Note: You must publish your blog for your changes to the post to appear."
+        puts "Would you like to publish your blog now? (y/N)"
+
+        p_choice = gets.chomp.strip.downcase
+
+        if p_choice == 'y' || p_choice == "p"
+          this_blog = Blog.new
+          this_blog.publish!('../radiation_posts/')
+        else
+          puts "OK I'll save your changes to the post, but I won't publish right now. You can always publish from the main menu."
         end
       else 
         puts "OK no worries. Let's head back to the main menu."
