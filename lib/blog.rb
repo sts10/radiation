@@ -153,7 +153,9 @@ class Blog
     puts "Enter the number of the post you wish to #{verb} (enter q to return to main menu):"
 
     Dir.glob(user_files_sorted) do |file_location|
-      puts "#{post_id} - #{file_location}"
+      line = File.open(file_location, &:readline).strip.downcase
+      draft = line == "draft" ? "- DRAFT" : ""
+      puts "#{post_id} - #{file_location} #{draft}"
       post_id = post_id + 1
     end
 
