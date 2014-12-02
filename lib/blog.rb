@@ -49,7 +49,7 @@ class Blog
       while (line = file.gets)
         if this_post.content
           this_post.content = this_post.content + line
-        else
+        else # this must be the first line of the post
           line.strip.downcase == "draft" ? draft = true : draft = false
           this_post.content = line
         end
@@ -154,7 +154,9 @@ class Blog
 
     Dir.glob(user_files_sorted) do |file_location|
       line = File.open(file_location, &:readline).strip.downcase
-      draft = line == "draft" ? "- DRAFT" : ""
+      if line 
+        draft = line == "draft" ? "- DRAFT" : ""
+      end
       puts "#{post_id} - #{file_location} #{draft}"
       post_id = post_id + 1
     end

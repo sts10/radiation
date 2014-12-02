@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.3.5 ☢
+# ☢ Radiation v 0.3.6 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
@@ -64,6 +64,12 @@ Once you've saved your post in your text editor and quit your text editor, you'l
 To edit posts you can use the 'e' option in the menu. Alternatively, you can go into `~/radiation_posts` and edit the post you want to edit in whatever text editor you like. 
 
 When you're done editing, run Radiation and run the publish command from the menu. 
+
+#### Managing Drafts
+
+Thanks to [gunnar](https://github.com/gunnarhafdal), Radiation v 0.3.6 supports drafts. A draft is simply a post that Radiation will save for you but won't publish. 
+
+To save a post as a draft, simply make the first line of the post the word "draft". Posts marked in this way won't be published. However you will be able to access them in the edit menu (described above). To publish a draft, simply edit the draft, remove the word "draft" from the first line, and publish your blog. 
 
 ### Making Radiation Easier to Run by Editing Your Bash Profile
 
