@@ -145,7 +145,7 @@ class Blog
     file_to_update = present_menu_of_posts(directory_location_of_posts, "update")
 
     if file_to_update
-      puts "Are you sure you wish to update the timestamp on the post #{file_to_update}? (y/N)"
+      puts "Are you sure you wish to update the timestamp to now on the post #{file_to_update}? This action cannot be undone. (y/N)"
       u_choice = gets.chomp.downcase
 
       if u_choice == 'y'
