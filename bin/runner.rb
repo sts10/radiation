@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
  
-current_version = "0.3.6"
+current_version = "0.3.7"
 
 if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') && File.exist?($my_template_location)
 
@@ -28,7 +28,7 @@ if File.exist?('../radiation_posts') && File.exist?('../radiation_templates') &&
     puts "n - create a new blog post"
     puts "e - edit a post"
     puts "d - delete a post"
-    puts "u - update timestamp on a post"
+    puts "u - update timestamp on a post to now"
 
     puts ""
     puts "s - edit my user settings"

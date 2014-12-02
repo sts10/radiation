@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.3.6 ☢
+# ☢ Radiation v 0.3.7 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
@@ -66,10 +66,11 @@ To edit posts you can use the 'e' option in the menu. Alternatively, you can go 
 When you're done editing, run Radiation and run the publish command from the menu. 
 
 #### Managing Drafts
-
-Thanks to [gunnar](https://github.com/gunnarhafdal), Radiation v 0.3.6 supports drafts. A draft is simply a post that Radiation will save for you but won't publish. 
+Thanks to [gunnar](https://github.com/gunnarhafdal), Radiation v 0.3.6+ supports drafts. A draft is simply a post that Radiation will save for you but won't publish. 
 
 To save a post as a draft, simply make the first line of the post the word "draft". Posts marked in this way won't be published. However you will be able to access them in the edit menu (described above). To publish a draft, simply edit the draft, remove the word "draft" from the first line, and publish your blog. 
+
+If you'd like to update the time stamp on your post, use the `u` option from the main menu. 
 
 ### Making Radiation Easier to Run by Editing Your Bash Profile
 
@@ -183,6 +184,10 @@ I really don't like how I currently require new users to paste that clunky bash 
 I know there's a better way to have users install Radiation-- something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 # Changelog
+
+#### What's New in v 0.3.7
+
+Another one of [gunnar](https://github.com/gunnarhafdal) pull requests! Can now update the timestamp on a post to the current time. This involves some nice splitting methods that gunnar wrote in order to rename the post's filename. 
 
 #### What's New in v 0.3.6 
 
