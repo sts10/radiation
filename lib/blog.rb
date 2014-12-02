@@ -12,10 +12,12 @@ class Blog
 
     post_id = 0
     posts_array = []
+    drafts = 0;
 
     Dir.glob(user_files_sorted) do |file_location|
       html = false
       mdown = false
+      draft = false
 
       if file_location[-5..-1] == ".html"
         html = true
@@ -47,7 +49,8 @@ class Blog
       while (line = file.gets)
         if this_post.content
           this_post.content = this_post.content + line
-        else 
+        else
+          line.strip.downcase == "draft" ? draft = true : draft = false
           this_post.content = line
         end
       end
@@ -57,16 +60,29 @@ class Blog
         this_post.content = this_post.content.gsub("“", "&ldquo;").gsub("”", "&rdquo;").gsub("‘", "&lsquo;").gsub("’", "&rsquo;").gsub("–", "&mdash;").gsub('…', '...')
       end
 
-      posts_array << this_post
+      posts_array << this_post if !draft
 
       file.close
 
       post_id = post_id + 1
+
+      if draft
+        drafts = drafts + 1;
+      end
+      
     end
 
     posts_array.each do |post|
       puts "Re-publishing #{post.file_location}"
     end
+
+    drafts_string = "drafts"
+    if drafts == 1
+      drafts_string = "draft"
+    end
+    puts ""
+    puts "You have #{drafts} #{drafts_string}"
+    puts ""
 
     return posts_array
   end
@@ -137,7 +153,9 @@ class Blog
     puts "Enter the number of the post you wish to #{verb} (enter q to return to main menu):"
 
     Dir.glob(user_files_sorted) do |file_location|
-      puts "#{post_id} - #{file_location}"
+      line = File.open(file_location, &:readline).strip.downcase
+      draft = line == "draft" ? "- DRAFT" : ""
+      puts "#{post_id} - #{file_location} #{draft}"
       post_id = post_id + 1
     end
 
