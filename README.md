@@ -184,6 +184,10 @@ I know there's a better way to have users install Radiation-- something with the
 
 # Changelog
 
+#### What's New in v 0.3.6 
+
+Draft support from new contributor [gunnar](https://github.com/gunnarhafdal). Reads first line of all posts to see if the first line is the word "draft". Knows not to publish these posts, and to label them as posts in all menus. 
+
 #### What's New in v 0.3.5 
 
 Added `<div class="post_content">` wrapper around the post content in the sample template. 
