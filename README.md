@@ -187,7 +187,7 @@ I know there's a better way to have users install Radiation-- something with the
 
 #### What's New in v 0.3.7
 
-Another one of [gunnar](https://github.com/gunnarhafdal) pull requests! Can now update the timestamp on a post to the current time. This involves some nice splitting methods that gunnar wrote in order to rename the post's filename. 
+I've merged another one of [gunnar](https://github.com/gunnarhafdal) pull requests! Users can now update the timestamp on a post to the current time (in their specified timezone). This involves some nice splitting methods that gunnar wrote in order to rename the post's filename. So cool to have outside help, and from folks I've never met, living on a different continent! 
 
 [Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-12-02T16+45+13-radiation-v-036-draft-support)
 
