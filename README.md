@@ -133,7 +133,7 @@ To change other settings you'll have to dive into the code in `/radiation` itsel
 
 ### Why Do Posts and Templates Live Outside of the Radiation Directory?
 
-If you use the setup command described in the installation instructions above, Radiation have the following directory structure:
+Once you allow Radiation to set itself up, as described in the installation instructions above, Radiation will have the following directory structure:
 
 ```
 ~/public_html/
