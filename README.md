@@ -2,11 +2,17 @@
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
+### What is Radiation? What Does it Do?
+
+Radiation is a CLI (command line interface) that allows users to create, edit, delete and publish blog posts to an HTML file (like `public_html/index.html` for example). Users can write posts in either HTML or Markdown. Radiation also gives each post a timestamp and a permalink that makes sharing easier. 
+
+Radiation was developed for use with [totallynuclear.club](http://totallynuclear.club/) sites, but I think it will work with other .club sites (see note below) or any situation where someone wants to produce a static HTML file with many posts. 
+
+Radiation is written in Ruby and is (of course) totally open source. If you have ideas for improvements we'd love to hear them! Just submit a GitHub issue. 
+
 ### Upgrading to v 0.3.X
 
-v 0.3.0 is another big update in that it changes the way user settings are saved. Basically now user settings are kept outside of the `~/radiation` directory, so future updates won't overwrite your user settings. 
-
-If you are upgrading from v 0.2.X or lower to v 0.3.X, I strongly recommend doing a complete re-install. When you re-install Radiation you won't lose your current posts or your radiation template! Remember `/radiation_posts` and `/radiation_templates` both sit outside the `/radiation` directory where the application lives. 
+If you are upgrading from v 0.2.X or lower to v 0.3.X, I strongly recommend doing a complete re-install. When you re-install Radiation you won't lose your current posts or your radiation template! In v 0.3.X `/radiation_posts` and `/radiation_templates` both sit outside the `/radiation` directory where the application lives. 
 
 To re-install Radiation, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
 
