@@ -12,7 +12,7 @@ class Blog
 
     post_id = 0
     posts_array = []
-    drafts = 0;
+    drafts = 0
 
     Dir.glob(user_files_sorted) do |file_location|
       html = false
@@ -67,7 +67,7 @@ class Blog
       post_id = post_id + 1
 
       if draft
-        drafts = drafts + 1;
+        drafts = drafts + 1
       end
       
     end
@@ -153,12 +153,12 @@ class Blog
         current_time = Time.new.in_timezone($my_timezone)
 
         # get the filename part of the file location (../radiation_posts/file.html)
-        old_file_name = file_to_update.split('/')[2];
+        old_file_name = file_to_update.split('/')[2]
 
         # This removes the timestamp from the filename.
         # Since the filename is "YYYY-MM-DDTHH+MM+SS-post-name.html" we split the name into an array
         # and remove the first 3 values (YYYY, MM, DDTHH+MM+SS). Then we join the array back into a string.
-        post_name = old_file_name.split('-').pop(2).join('-');
+        post_name = old_file_name.split('-').pop(2).join('-')
         
         file_name = current_time.strftime "%Y-%m-%dT%H+%M+%S-" + post_name
         

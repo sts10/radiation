@@ -66,11 +66,11 @@ To edit posts you can use the 'e' option in the menu. Alternatively, you can go 
 When you're done editing, run Radiation and run the publish command from the menu. 
 
 #### Managing Drafts
-Thanks to [gunnar](https://github.com/gunnarhafdal), Radiation v 0.3.6+ supports drafts. A draft is simply a post that Radiation will save for you but won't publish. 
+Thanks to [gunnarhafdal](https://github.com/gunnarhafdal), Radiation v 0.3.6+ supports drafts. A draft is simply a post that Radiation will save for you but won't publish. 
 
 To save a post as a draft, simply make the first line of the post the word "draft". Posts marked in this way won't be published. However you will be able to access them in the edit menu (described above). To publish a draft, simply edit the draft, remove the word "draft" from the first line, and publish your blog. 
 
-If you'd like to update the time stamp on your post, use the `u` option from the main menu. 
+If you'd like to update the timestamp on your post (say before publishing a draft you've been work on for a while), use the `u` option from the main menu. This will change the post's timestamp to the current time in your specified timezone. 
 
 ### Making Radiation Easier to Run by Editing Your Bash Profile
 
