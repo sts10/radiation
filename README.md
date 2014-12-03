@@ -189,6 +189,8 @@ I know there's a better way to have users install Radiation-- something with the
 
 Another one of [gunnar](https://github.com/gunnarhafdal) pull requests! Can now update the timestamp on a post to the current time. This involves some nice splitting methods that gunnar wrote in order to rename the post's filename. 
 
+[Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-12-02T16+45+13-radiation-v-036-draft-support)
+
 #### What's New in v 0.3.6 
 
 Draft support from new contributor [gunnar](https://github.com/gunnarhafdal). Reads first line of all posts to see if the first line is the word "draft". Knows not to publish these posts, and to label them as posts in all menus. 
@@ -211,6 +213,8 @@ Adds a new menu option to delete posts. This required a new method and some refa
 
 I really don't like that `runner.rb` is at 300 lines, but it seems to be working at this point. 
 
+[Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-11-11T16+20+22-radiation-033)
+
 #### What's New in v 0.3.2
 
 Added a new main menu option "b - Add radiation function to your bash_profile" that appends a simple BASH function to the user's bash_profile for calling radiation from anywhere in their box. Some nifty `.grep` use makes it difficult for users to add the function multiple times. 
@@ -224,6 +228,8 @@ Replaces semi-colons, colons, and parentheses in new post titles. Also no longer
 Another big improvement to how Radiation handles user settings. User settings are now stored in a file outside of `~/radiation`, just like `/radiation_posts` and `/radiation_templates` do. The purpose is so that when users re-install Radiation or update to a new version using `fit pull`, their user settings are preserved. 
 
 You can get a good idea of how this works by looking at `config/environment.rb`
+
+[Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-11-10T18+08+45-radiation-030)
 
 #### What's New in v 0.2.3
 
@@ -239,6 +245,8 @@ Users now can choose, when creating a new post, whether they want it to be HTML 
 
 **NOTE:** Posts created in older versions of Radiation will still render in HTML, because the post file extension is `.html`. Also, users can continue to write posts in HTML by simply choosing HTML every time they create a new post. 
 
+[Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-11-09T22+46+58-v-022-with-markdown-support)
+
 #### What's New in v 0.2.1
 
 As per [a comment by bobblyllama](https://github.com/sts10/radiation/issues/3#issuecomment-62322602), v 0.2.1 allows user to not specify a timezone in their user_settings.
@@ -247,13 +255,19 @@ As per [a comment by bobblyllama](https://github.com/sts10/radiation/issues/3#is
 
 Time-zone support, thanks to a kernel of code [provided by ~erik himself](https://github.com/sts10/radiation/issues/3). Note that this is a pretty big update in that Radiation now uses a `user_settings.rb` file for 4 important settings that users can change, including timezone. For this reason, if upgrading from v 0.1.x to v 0.2.x that you un-install and re-install Radiation as per the note on top of this README. 
 
+[Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-11-09T14+13+30-radiation-020)
+
 #### What's New in v 0.1.1
 
 Emergency bug fix for new posts created in first 9 days of a month. The day of the month was " 3" rather than "03" and the space was finding its way into the .html name, which caused a lot of problems. v 0.1.1 applies a fix where I use `%d` instead of `%e` in `post.rb`. 
 
+[Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-11-04T04+40+44-test-post)
+
 #### What's New in v 0.1.0
 
 Now saves new posts and pulls posts to publish from `/radiation_posts` rather than `/posts`. I made this change for name-spacing reasons-- in case users already have a directory at `~/posts`, and for symmetry of the naming structure. 
+
+[Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-10-21T20+27+04-v-010-a-working-product)
 
 #### What's New in v 0.0.8
 
@@ -286,6 +300,8 @@ Significant changes.
 
 2. Partially as a result of this change, I decided to write a script for new users to setup Radiation. See the installation section above for more information. 
 
+[Read my blog post on this version](http://totallynuclear.club/~schlink/#2014-10-14T00+14+16-radiation0-0-5)
+
 #### What's New in v 0.0.4
 To solve the problem of not being able to store post creation times, I decided to store that information in the names of new posts when they are created. See `Post#create` for how that works. 
 
@@ -296,6 +312,9 @@ Since newly-created posts now get their creation time put into the filename, in 
 #### What's New in v 0.0.3
 I greatly simplified model structure. Where there was post_compiler and site_generator, etc. there are now only two models: `post` and `blog`. `blog`, a new model, has a simple method called `publish!` that re-writes the `blog.html` file from the posts directory, using the `blog.html.erb` template.
 
+#### v 0.0.2
+
+[Read my blog post on this (very early) version](http://totallynuclear.club/~schlink/#2014-10-12T17+22+12-hello_world)
 
 # Hopefully Coming Soon
 
@@ -303,5 +322,5 @@ I greatly simplified model structure. Where there was post_compiler and site_gen
 - Individual HTML pages for each post.
 - Pagination
 - Export to JSON
-- A way to save and store drafts
+
 
