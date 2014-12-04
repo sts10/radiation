@@ -10,11 +10,11 @@ Radiation was developed for use with [totallynuclear.club](http://totallynuclear
 
 Radiation is written in Ruby and is (of course) totally open source. If you have ideas for improvements we'd love to hear them! Just submit a GitHub issue. 
 
-### Upgrading to v 0.3.X
+### Upgrading Radiation
 
-If you are upgrading from v 0.2.X or lower to v 0.3.X, I strongly recommend doing a complete re-install. When you re-install Radiation you won't lose your current posts or your radiation template! In v 0.3.X `/radiation_posts` and `/radiation_templates` both sit outside the `/radiation` directory where the application lives. 
+If you already have Radiation installed and want to upgrade to the current version, even if your version is just one iteration old, I strongly recommend doing a complete re-install. When you re-install Radiation you won't lose your current posts or your radiation template! That's because in v 0.3.X `/radiation_posts` and `/radiation_templates` both sit outside the `/radiation` directory where the application lives. 
 
-To re-install Radiation, run `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
+To re-install Radiation, first uninstall it by running `rm -rf ~/radiation`. Now follow the NEW installation instructions below. 
 
 # Getting Started With Radiation
 
