@@ -4,7 +4,7 @@
 # You may set = to '' if you don't want to set a time-zone
 $my_timezone = 'America/New_York' 
 
-#Set your text editor. Choices are: emacs, vim, or nano.
+# Set your text editor. Choices (for totally nuclear club at least) are: nano, vim, or emacs.
 $my_text_editor_command = 'vim'
 
 # Set where you want Radiation to "publish" your blog. 
