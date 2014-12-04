@@ -193,7 +193,7 @@ I know there's a better way to have users install Radiation-- something with the
 
 #### What's New in v 0.3.8
 
-Improved handling of completely blank posts. Now you can call the edit menu and a completely blank post won't cause Radiation to error out. This is hopefully a successfully attempt at solving [this issue](https://github.com/sts10/radiation/issues/10) submitted by [cena](https://github.com/cena).
+Improved handling of completely blank posts. Now you can call the edit menu and a completely blank post won't cause Radiation to error out. This is hopefully a successful attempt at solving [this issue](https://github.com/sts10/radiation/issues/10) submitted by [cena](https://github.com/cena).
 
 #### What's New in v 0.3.7
 
