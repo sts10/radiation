@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.3.8 ☢
+# ☢ Radiation v 0.3.85 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
