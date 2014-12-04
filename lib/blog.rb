@@ -184,11 +184,12 @@ class Blog
     Dir.glob(user_files_sorted) do |file_location|
       file = File.new(file_location, "r") # open file
       line = file.gets # get the first line of the file
-      if line && line != ''
+      if line          # if there is a first line
         draft = line.strip.downcase == "draft" ? "- DRAFT" : ""
       end
       puts "#{post_id} - #{file_location} #{draft}"
       post_id = post_id + 1
+      file.close
     end
 
     file_number = gets.chomp.strip
