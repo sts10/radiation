@@ -111,6 +111,18 @@ They're always safe and sound in `~/radiation_posts`. You can edit and/or delete
 
 Note: If you use Git feel free to run `git init` in the posts directory. However this is certainly not necessary. 
 
+### Can I Download my Radiation Posts to My Local Machine as a Back-Up?
+
+Totally. One way to do this is to use a command line tool called `scp` on your _local machine_ (i.e. the computer you're on, NOT your Totally Nuclear box). I'm not sure if all you will have this tool-- you can check by just running `scp` in your console. If it says `usage: scp [-12346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]` etc. then you should be good to go. 
+
+If you have `scp` on your local machine, running the following on your local machine will create a folder called radiation_posts on your local machine's Desktop containing all of your radiation posts. NOTE: You may be asked to input your Totally Nuclear password. 
+
+```
+scp -r schlink@totallynuclear.club:~/radiation_posts ~/Desktop
+```
+
+Going forward I'll try to figure out a better way to do this, because it is important to me. If you have any ideas, ideally to make it possible to have a menu item in Radiation's main menu called `back up posts to local machine`, please let me know. 
+
 ### Editing the Blog Template 
 
 Radiation uses ERB for templating. If you don't know ERB, you can probably figure it out. Once you've setup Radiation, you can head on over to `~/radiation_templates/blog.html.erb` or use the `t` option in the main menu and take a look at the sample template. 
