@@ -118,7 +118,7 @@ Totally. One way to do this is to use a command line tool called `scp` on your _
 If you have `scp` on your local machine, running the following on your local machine will create a folder called radiation_posts on your local machine's Desktop containing all of your radiation posts. NOTE: You may be asked to input your Totally Nuclear password. 
 
 ```
-scp -r schlink@totallynuclear.club:~/radiation_posts ~/Desktop
+scp -r your-totally-nuclear-username@totallynuclear.club:~/radiation_posts ~/Desktop
 ```
 
 Going forward I'll try to figure out a better way to do this, because it is important to me. If you have any ideas, ideally to make it possible to have a menu item in Radiation's main menu called `back up posts to local machine`, please let me know. 
