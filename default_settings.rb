@@ -5,7 +5,7 @@
 $my_timezone = 'America/New_York' 
 
 # Set your text editor. Choices (for totally nuclear club at least) are: nano, vim, or emacs.
-$my_text_editor_command = 'vim'
+$my_text_editor_command = 'nano'
 
 # Set where you want Radiation to "publish" your blog. 
 $my_blog_location = '../public_html/blog.html'
