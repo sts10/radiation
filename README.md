@@ -61,7 +61,7 @@ If you choose to write HTML, here's a quick example of what it should look like:
 <img src="URL">
 ```
 
-If you choose to use [Markdown](http://daringfireball.net/projects/markdown/), know that Radiation uses GFM or GitHub flavored Markdown. Multi-line code blocks should be delineated with triple backticks (\`\`\`). You can also specify a programming language for syntax highlighting. 
+If you choose to use [Markdown](http://daringfireball.net/projects/markdown/), know that Radiation uses GFM or GitHub flavored Markdown. Multi-line code blocks should be delineated with triple backticks (\`\`\`). You can also specify a programming language of the code block for syntax highlighting. 
 
 #### Publishing Your New Blog Post
 Once you've saved your post in your text editor and quit your text editor, you'll be asked if you want to publish your changes. If you enter 'y', your blog will be published and your new post should be live in a few seconds. If you select 'n', your post will be saved but not pushed to your blog. 
@@ -97,11 +97,11 @@ function radiation {
 }
 ```
 
-If you do not see option `b - Add radiation function to your bash_profile` in your Radiation main menu, that means you already have a function called `radiation` in your bash_profile. You most likely do NOT want to add another one, but Radiation will let you if you confirm. Either way, at this point you'll want to see what's going on in your bash_profile by running `vim ~/.bash_profile`.
+If you do not see option `b - Add radiation function to your bash_profile` in your Radiation main menu, that means you already have a function called `radiation` in your bash_profile. You most likely do NOT want to add another one, but Radiation will let you if you confirm. Either way, at this point you'll want to see what's going on in your bash_profile by running `nano ~/.bash_profile`.
 
 ### Editing User Settings
 
-In the main menu you'll see option `s` for editing user settings. Here you can do things like set your local timezone (by default set to New York), change the text editor you use (I think on totally nuclear boxes there's only `vim` or `nano`-- default is `vim`), and change what file your blog gets printed to (default is `public_html/blog.html`). 
+In the main menu you'll see option `s` for editing user settings. Here you can do things like set your local timezone (by default set to New York), change the text editor you use (I think on totally nuclear boxes there's only `nano`, `vim` or `emacs`-- default is `nano`), and change what file your blog gets printed to (default is `public_html/blog.html`). 
 
 Once you make your changes, save the file and then restart Radiation for the changes to take effect.
 
