@@ -1,4 +1,4 @@
-# ☢ Radiation v 0.3.9 ☢
+# ☢ Radiation v 0.4.0 ☢
 
 Radiation is a simple blog CMS for [totallynuclear.club](http://totallynuclear.club/) pages. You can see a live example of a blog created with Radiation [on my page](http://totallynuclear.club/~schlink/#blog_header). 
 
@@ -202,6 +202,10 @@ I really don't like how I currently require new users to paste that clunky bash 
 I know there's a better way to have users install Radiation-- something with the `ln` bash command and setting up an alias for `ruby bin/runner.rb`. I have tried to get this working a few times but can't quite figure out which paths to make relative and which to make absolute. Would love any hints/ideas on how to get this done. 
 
 # Changelog
+
+#### What's New in v 0.4.0
+
+Removed line numbers from code embeds by coderay. I did this by passing a new option `:coderay_line_numbers => nil` in the markdown conversion in `lib/blog.rb`. I decided to remove the line numbers because often readers of your blog will be wanting to copy and paste large code blocks from your blog. When coderay displayed the line numbers, they could be picked up in the users' clipboard, which sucks. 
 
 #### What's New in v 0.3.9
 
