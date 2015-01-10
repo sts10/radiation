@@ -205,11 +205,11 @@ I know there's a better way to have users install Radiation-- something with the
 
 #### What's New in v 0.4.0
 
-Removed line numbers from code embeds by coderay. I did this by passing a new option `:coderay_line_numbers => nil` in the markdown conversion in `lib/blog.rb`. I decided to remove the line numbers because often readers of your blog will be wanting to copy and paste large code blocks from your blog. When coderay displayed the line numbers, they could be picked up in the users' clipboard, which sucks. 
+Removed line numbers from coderay code embeds. I did this by passing a new option `:coderay_line_numbers => nil` in the markdown conversion in `lib/blog.rb`. I decided to remove the line numbers because often readers of your blog will be wanting to copy and paste large code blocks from your blog. When coderay displayed the line numbers, the otherwise helpful line numbers are picked up in the users' clipboard, which sucks. 
 
 #### What's New in v 0.3.9
 
-Changed default text editor from nano to vim to make new user on-boarding a bit easier if unfamiliar with vim. 
+Changed default text editor from vim to nano to make new user on-boarding a bit easier if unfamiliar with vim. 
 
 #### What's New in v 0.3.8
 
